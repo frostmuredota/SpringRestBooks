@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	<context:annotation-config />
+	<bean id="author1" class="org.ramon.model.Author">
+		<property name="name" value="Gabriel" />
+		<property name="lastn" value=" García Marquez" />
+	</bean>
+	<bean id="author2" class="org.ramon.model.Author">
+		<property name="name" value="Edgan" />
+		<property name="lastn" value=" Allan Poe" />
+	</bean>
+	<bean id="author3" class="org.ramon.model.Author">
+		<property name="name" value="Jack" />
+		<property name="lastn" value="London" />
+	</bean>
+	<bean id="book1" class="org.ramon.model.Book">
+		<property name="name" value="100 años de soledad"/>
+		<property name="editorial" value="Atahualpa"/>
+		<property name="author">
+		    <ref bean="author1"/>
+		</property>
+	</bean>
+	<bean id="book2" class="org.ramon.model.Book">
+		<property name="name" value="Crónicas de una Muerte Anunciada"/>
+		<property name="editorial" value="Alfaguara"/>
+		<property name="author">
+		    <ref bean="author2"/>
+		</property>
+	</bean>
+	<bean id="book3" class="org.ramon.model.Book">
+		<property name="name" value="Colmillo Blanco"/>
+		<property name="editorial" value="Satori"/>
+		<property name="author">
+		    <ref bean="author3"/>
+		</property>
+	</bean>
+	<bean id="mapbooks" class="org.ramon.dao.BooksDaoImpl">
+		<property name="books">
+			<map>
+				<entry key="1" value-ref="book1" />
+				<entry key="2" value-ref="book2" />
+				<entry key="3" value-ref="book3" />
+			</map>
+		</property>
+	</bean>
+	<context:component-scan base-package="org.ramon.controller" />
+</beans>
+ -->
