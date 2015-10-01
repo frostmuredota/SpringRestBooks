@@ -46,6 +46,7 @@ dependencies {
     // end::actuator[]
     // tag::tests[]
     testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile ('com.jayway.jsonpath:json-path:0.8.1')
     // end::tests[]
     
 }

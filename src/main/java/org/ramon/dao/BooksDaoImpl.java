@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import lombok.Getter;
 import lombok.Setter;
+
 import org.ramon.model.Author;
 import org.ramon.model.Book;
 
@@ -15,7 +17,7 @@ public class BooksDaoImpl implements BooksDao {
 	private Map<String, Book> books;
 
 	public BooksDaoImpl(){
-		//books=new HashMap<String,Book>();
+		books=new HashMap<String,Book>();
 		//books.put("1", new Book("1","100 años de soledad","Ercilla",new Author("Gabriel","Garcia Marquez")));
 		//books.put("2", new Book("2","El amor en tiempos de Cólera","Mondadori",new Author("Gabriel","Garcia Marquez")));
 		//books.put("3", new Book("3","Crónica de una muerte anunciada","Ercilla",new Author("Edgar","Alan Poe")));
@@ -114,7 +116,20 @@ public class BooksDaoImpl implements BooksDao {
 		}
         return id;
 	}
+	@Override
+	public boolean exist(String idBook) {
+		boolean exist=false;
+		for (String key : this.getBooks().keySet()) {
+			if (this.getBooks().get(key).getId().equals(idBook)) {
+				exist=true;	
 
+			}
+		}
+		return exist;
+	}
 
+   public String sayHello(){
+	   return "Hello";
+   }
 
 }

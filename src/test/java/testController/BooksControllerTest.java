@@ -6,9 +6,15 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
+
+import net.minidev.json.JSONObject;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,23 +34,24 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 import com.google.gson.Gson;
 
-//import notesdashboard.models.Note;
-//import notesdashboard.controllers.NoteController;
-//import notesdashboard.dao.*;
+import org.ramon.model.Author;
+import org.ramon.model.Book;
+import org.ramon.controller.BooksController;
+import org.ramon.dao.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MockServletContext.class)
 @WebAppConfiguration
 public class BooksControllerTest {
-/*
+
     Gson gson;
     Properties properties;
-    Note note1, note2, note3;
-    List<Note> entities;
+    Book book1, book2, book3;
+    Map<String,Book> library;
     @Mock
-    NoteDao service;
+    BooksDaoImpl daobook;
     @InjectMocks
-    NoteController noteController;
+    BooksController bookController;
     private MockMvc mvc;
 
     @Before
@@ -52,62 +59,70 @@ public class BooksControllerTest {
         gson = new Gson();
         properties = new Properties();
 
-        note1 = new Note(1, "title test", "description test");
-        note2 = new Note(2, "title2", "description2");
-        note3 = new Note(3, "title3", "description3");
+        book1 = new Book("1","100 anos de soledad","Ercilla",new Author("Gabriel","Garcia Marquez"));
+        book2 = new Book("2","El amor en tiempos de Cólera","Mondadori",new Author("Gabriel","Garcia Marquez"));
+        book3 = new Book("3","Crónica de una muerte anunciada","Ercilla",new Author("Edgar","Alan Poe"));
 
-        entities = new ArrayList<Note>();
-        entities.add(note1);
-        entities.add(note2);
-        entities.add(note3);
+        library = new HashMap<>();
+        library.put("1",book1);
+        library.put("2",book2);
+        library.put("3",book3);
 
         MockitoAnnotations.initMocks(this);
 
-        Mockito.when(service.exist(note1.getId())).thenReturn(true);
-        Mockito.when(service.exist(note2.getId())).thenReturn(true);
-        Mockito.when(service.exist(note3.getId())).thenReturn(true);
+        Mockito.when(daobook.exist(book1.getId())).thenReturn(true);
+        Mockito.when(daobook.exist(book2.getId())).thenReturn(true);
+        Mockito.when(daobook.exist(book3.getId())).thenReturn(true);
 
-        Mockito.when(service.getById(note1.getId())).thenReturn(note1);
-        Mockito.when(service.getById(note2.getId())).thenReturn(note2);
-        Mockito.when(service.getById(note3.getId())).thenReturn(note3);
-
-        Mockito.when(service.deleteById(note1.getId())).thenReturn(note1);
+        Mockito.when(daobook.getBook(book1.getId())).thenReturn(book1);
+        Mockito.when(daobook.getBook(book2.getId())).thenReturn(book2);
+        Mockito.when(daobook.getBook(book3.getId())).thenReturn(book3);
+/*
+        Mockito.when(daobook.deleteBook(book1.getId()).;
         Mockito.when(service.deleteById(note2.getId())).thenReturn(note2);
         Mockito.when(service.deleteById(note3.getId())).thenReturn(note3);
         Mockito.when(service.deleteById(4)).thenReturn(null);
+*/
+        Mockito.when(daobook.getBooks()).thenReturn(library);
 
-        Mockito.when(service.getAll()).thenReturn(entities);
-
-        mvc = MockMvcBuilders.standaloneSetup(new NoteController()).build();
+        mvc = MockMvcBuilders.standaloneSetup(new BooksController()).build();
+    }
+    
+    @Test
+    public void sayHello(){
+    	Mockito.when(daobook.sayHello()).thenReturn("Hello");
     }
 
-    // 1) test of get (GET) an empty arraylist note
+    // 1) test of get (GET) an empty arraylist books
     @Test
-    public void getListZeroNotesAsJson() throws Exception {
-        entities = new ArrayList<Note>();
+    public void getListBooksAsJson() throws Exception {
         mvc.perform(
-                get("/notesdashboard/api/notes/").accept(
+                get("/SpringRestBooks/list").accept(
                         MediaType.APPLICATION_JSON)).andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk()).andExpect(content().string("[]"));
     }
 
-    // 2) test of create (POST) a new note using an arraylist
+    // 2) test of create (POST) a new book 
     @Test
-    public void createNote() throws Exception {
-        entities = new ArrayList<Note>();
-        String json = gson.toJson(note1);
+    public void createBook() throws Exception {
+        
+        String json = gson.toJson(book1);
+        JSONObject author = new JSONObject();
+        author.put("name", book1.getAuthor().getName());
+        author.put("lastn", book1.getAuthor().getLastn());
         mvc.perform(
-                post("/notesdashboard/api/notes/").contentType(
+                post("/SpringRestBooks/create").contentType(
                         MediaType.APPLICATION_JSON).content(json))
                 .andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.title").value(note1.getTitle()))
-                .andExpect(
-                        jsonPath("$.description").value(note1.getDescription()))
+                .andExpect(jsonPath("$.id").value(book1.getId()))
+                .andExpect(jsonPath("$.name").value(book1.getName()))
+                .andExpect(jsonPath("$.editorial").value(book1.getEditorial()))
+                .andExpect(jsonPath("$.author").value(author))
                 .andReturn();
     }
-
+/*
     // 3) test of create (POST) and then get (GET) a not empty note arraylist
     @Test
     public void createAndGetNoteWithList() throws Exception {

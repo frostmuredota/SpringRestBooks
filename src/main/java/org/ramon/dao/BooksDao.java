@@ -12,5 +12,6 @@ public interface BooksDao {
     public void deleteBook(String idBook);
     public void addBook(Book b); 
     public void updateBook(Book book);
-    
+    public boolean exist(String idBook);
+    public String sayHello();
 }
