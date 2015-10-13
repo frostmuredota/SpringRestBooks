@@ -10,8 +10,8 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Book {
-	private String id;
-	private String name;
-	private String editorial;
-	private Author author;
+    private String id;
+    private String name;
+    private String editorial;
+    private Author author;
 }

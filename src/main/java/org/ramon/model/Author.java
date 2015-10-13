@@ -10,6 +10,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Author {
-	private String name;
-	private String lastn;
+    private String name;
+    private String lastn;
 }
