@@ -2,7 +2,6 @@ package org.ramon.dao;
 
 import java.util.List;
 
-import org.ramon.model.Author;
 import org.ramon.model.Book;
 
 public interface BooksDao {
