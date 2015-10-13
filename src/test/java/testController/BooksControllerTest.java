@@ -1,5 +1,6 @@
 package testController;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -55,7 +56,7 @@ public class BooksControllerTest {
 	@Test
 	public void getListEmptyBooks() throws Exception {
 		mvc.perform(
-				get("/SpringRestBooks/list").accept(MediaType.APPLICATION_JSON))
+				get("/SpringRestBooks/list").accept(APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(content().string("[]"));
 	}
@@ -69,9 +70,8 @@ public class BooksControllerTest {
 		author.put("lastn", book.getAuthor().getLastn());
 
 		mvc.perform(
-				post("/SpringRestBooks/create").contentType(
-						MediaType.APPLICATION_JSON).content(json))
-				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+				post("/SpringRestBooks/create").contentType(APPLICATION_JSON)
+				.content(json))
 				.andExpect(jsonPath("$.id").value(book.getId()))
 				.andExpect(jsonPath("$.name").value(book.getName()))
 				.andExpect(jsonPath("$.editorial").value(book.getEditorial()))
@@ -79,7 +79,7 @@ public class BooksControllerTest {
 				.andExpect(status().isCreated()).andReturn();
 
 		mvc.perform(
-				get("/SpringRestBooks/list").accept(MediaType.APPLICATION_JSON))
+				get("/SpringRestBooks/list").accept(APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(status().isOk())
 				.andExpect(content().string("[{\"id\":\"1\",\"name\":\"Librito\","
@@ -96,7 +96,7 @@ public class BooksControllerTest {
 		mvc.perform(
 				post("/SpringRestBooks/create").contentType(
 						MediaType.APPLICATION_JSON).content(json))
-				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+				.andExpect(content().contentType(APPLICATION_JSON))
 				.andExpect(jsonPath("$.id").value(book.getId()))
 				.andExpect(jsonPath("$.name").value(book.getName()))
 				.andExpect(jsonPath("$.editorial").value(book.getEditorial()))
@@ -105,7 +105,7 @@ public class BooksControllerTest {
 
 		mvc.perform(
 				get("/SpringRestBooks/listbyauthor/{authorName}", "Miguel")
-						.accept(MediaType.APPLICATION_JSON))
+						.accept(APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(
 						content()
@@ -118,7 +118,7 @@ public class BooksControllerTest {
 	public void testEmptyListByAuthor() throws Exception {
 		mvc.perform(
 				get("/SpringRestBooks/listbyauthor/{authorName}", "Roberto")
-						.accept(MediaType.APPLICATION_JSON))
+						.accept(APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(content().string("[]"));
 	}
@@ -131,8 +131,8 @@ public class BooksControllerTest {
 		author.put("name", book.getAuthor().getName());
 		author.put("lastn", book.getAuthor().getLastn());
 		mvc.perform(
-				post("/SpringRestBooks/create").contentType(
-						MediaType.APPLICATION_JSON).content(json))
+				post("/SpringRestBooks/create").contentType(APPLICATION_JSON)
+				.content(json))
 				.andExpect(jsonPath("$.id").value(book.getId()))
 				.andExpect(jsonPath("$.name").value(book.getName()))
 				.andExpect(jsonPath("$.editorial").value(book.getEditorial()))
@@ -148,8 +148,8 @@ public class BooksControllerTest {
 		author.put("name", book.getAuthor().getName());
 		author.put("lastn", book.getAuthor().getLastn());
 		mvc.perform(
-				post("/SpringRestBooks/create").contentType(
-						MediaType.APPLICATION_JSON).content(json))
+				post("/SpringRestBooks/create").contentType(APPLICATION_JSON)
+				.content(json))
 				.andExpect(jsonPath("$.id").value(book.getId()))
 				.andExpect(jsonPath("$.name").value(book.getName()))
 				.andExpect(jsonPath("$.editorial").value(book.getEditorial()))
@@ -159,7 +159,7 @@ public class BooksControllerTest {
 		mvc.perform(
 				get("/SpringRestBooks/get/{idBook}", "1").accept(
 						MediaType.APPLICATION_JSON))
-				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+				.andExpect(content().contentType(APPLICATION_JSON))
 				.andExpect(jsonPath("$id").value("1"))
 				.andExpect(jsonPath("$.name").value("Librito"))
 				.andExpect(jsonPath("$.editorial").value("Editorial 5"))
@@ -178,7 +178,7 @@ public class BooksControllerTest {
 		mvc.perform(
 				post("/SpringRestBooks/create").contentType(
 						MediaType.APPLICATION_JSON).content(json))
-				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+				.andExpect(content().contentType(APPLICATION_JSON))
 				.andExpect(jsonPath("$.id").value(book.getId()))
 				.andExpect(jsonPath("$.name").value(book.getName()))
 				.andExpect(jsonPath("$.editorial").value(book.getEditorial()))
@@ -188,7 +188,7 @@ public class BooksControllerTest {
 		mvc.perform(
 				 delete("/SpringRestBooks/delete/{idBook}","1")
 				 .accept(MediaType.APPLICATION_JSON))
-				 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+				 .andExpect(content().contentType(APPLICATION_JSON))
 				 .andExpect(jsonPath("$.id").value(book.getId()))
 				 .andExpect(jsonPath("$.name").value(book.getName()))
 				 .andExpect(jsonPath("$.editorial").value(book.getEditorial()))
@@ -215,7 +215,7 @@ public class BooksControllerTest {
 		mvc.perform(
 				post("/SpringRestBooks/create").contentType(
 						MediaType.APPLICATION_JSON).content(json))
-				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+				.andExpect(content().contentType(APPLICATION_JSON))
 				.andExpect(jsonPath("$.id").value(book.getId()))
 				.andExpect(jsonPath("$.name").value(book.getName()))
 				.andExpect(jsonPath("$.editorial").value(book.getEditorial()))
@@ -226,8 +226,8 @@ public class BooksControllerTest {
 				"Cervantes"));
 		String json1 = gson.toJson(bookUpdate);
 		mvc.perform(
-				put("/SpringRestBooks/update").contentType(
-						MediaType.APPLICATION_JSON).content(json1))
+				put("/SpringRestBooks/update").contentType(APPLICATION_JSON)
+				.content(json1))
 				.andExpect(status().isOk())
 				.andReturn();
 
