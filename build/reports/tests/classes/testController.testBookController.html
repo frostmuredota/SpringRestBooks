@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class testController.testBookController</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class testController.testBookController</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/testController.html">testController</a> &gt; testBookController</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">10</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.811s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">getListEmptyBooks</td>
+<td>0.014s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testCreateBook</td>
+<td>0.022s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testDeleteBook</td>
+<td>0.019s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testDeleteNotExistBook</td>
+<td>0.015s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testEmptyListByAuthor</td>
+<td>0.014s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetBook</td>
+<td>0.023s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testListByAuthor</td>
+<td>0.645s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testListNotEmpty</td>
+<td>0.022s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testUpdateExistBook</td>
+<td>0.020s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testUpdateNotExistBook</td>
+<td>0.017s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>16:14:04.166 [Test worker] DEBUG o.s.t.c.j.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class testController.testBookController].
+16:14:04.172 [Test worker] DEBUG o.s.test.context.BootstrapUtils - Instantiating TestContextBootstrapper from class [org.springframework.test.context.web.WebTestContextBootstrapper]
+16:14:04.188 [Test worker] DEBUG o.s.t.c.w.WebTestContextBootstrapper - Found explicit ContextLoader class [org.springframework.boot.test.SpringApplicationContextLoader] for context configuration attributes [ContextConfigurationAttributes@10c19a1d declaringClass = 'testController.testBookController', classes = '{class org.springframework.mock.web.MockServletContext}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.boot.test.SpringApplicationContextLoader']
+16:14:04.192 [Test worker] DEBUG o.s.t.c.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [testController.testBookController]
+16:14:04.195 [Test worker] DEBUG o.s.t.c.w.WebTestContextBootstrapper - @TestExecutionListeners is not present for class [testController.testBookController]: using defaults.
+16:14:04.202 [Test worker] INFO  o.s.t.c.w.WebTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+16:14:04.207 [Test worker] INFO  o.s.t.c.w.WebTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+16:14:04.208 [Test worker] INFO  o.s.t.c.w.WebTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/TransactionDefinition]
+16:14:04.209 [Test worker] INFO  o.s.t.c.w.WebTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@58d4cc8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@786783f8, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7d23cbc7]
+16:14:04.211 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [testController.testBookController]
+16:14:04.212 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [testController.testBookController]
+16:14:04.212 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [testController.testBookController]
+16:14:04.213 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [testController.testBookController]
+16:14:04.215 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [testController.testBookController]
+16:14:04.215 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [testController.testBookController]
+16:14:04.264 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+16:14:04.266 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+16:14:04.266 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+16:14:04.268 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [integrationTest] PropertySource with search precedence immediately lower than [systemEnvironment]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.2.6.RELEASE)
+
+2015-10-14 16:14:04.414  INFO 8668 --- [    Test worker] testController.testBookController        : Starting testBookController on ramon-Inspiron-5520 with PID 8668 (/home/ramon/workspace/SpringRestBooks/build/classes/test started by ramon in /home/ramon/workspace/SpringRestBooks)
+2015-10-14 16:14:04.443  INFO 8668 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@7c9147d4: startup date [Wed Oct 14 16:14:04 CLT 2015]; root of context hierarchy
+2015-10-14 16:14:04.492  INFO 8668 --- [    Test worker] testController.testBookController        : Started testBookController in 0.218 seconds (JVM running for 1.01)
+2015-10-14 16:14:04.675  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getBook(java.lang.String)
+2015-10-14 16:14:04.675  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
+2015-10-14 16:14:04.676  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getAllBooks()
+2015-10-14 16:14:04.676  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.deleteBook(java.lang.String)
+2015-10-14 16:14:04.676  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
+2015-10-14 16:14:04.676  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.updateComputer(org.ramon.model.Book)
+2015-10-14 16:14:04.677  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/]}&quot; onto public java.lang.String org.ramon.controller.BooksController.index()
+2015-10-14 16:14:04.926  INFO 8668 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@5c3c938a
+2015-10-14 16:14:04.982  INFO 8668 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring FrameworkServlet ''
+2015-10-14 16:14:04.983  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2015-10-14 16:14:04.984  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 1 ms
+2015-10-14 16:14:05.156  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getBook(java.lang.String)
+2015-10-14 16:14:05.156  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
+2015-10-14 16:14:05.156  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getAllBooks()
+2015-10-14 16:14:05.157  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.deleteBook(java.lang.String)
+2015-10-14 16:14:05.157  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
+2015-10-14 16:14:05.157  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.updateComputer(org.ramon.model.Book)
+2015-10-14 16:14:05.157  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/]}&quot; onto public java.lang.String org.ramon.controller.BooksController.index()
+2015-10-14 16:14:05.165  INFO 8668 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@2170f8d1
+2015-10-14 16:14:05.168  INFO 8668 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring FrameworkServlet ''
+2015-10-14 16:14:05.168  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2015-10-14 16:14:05.168  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 0 ms
+2015-10-14 16:14:05.178  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getBook(java.lang.String)
+2015-10-14 16:14:05.179  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
+2015-10-14 16:14:05.179  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getAllBooks()
+2015-10-14 16:14:05.179  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.deleteBook(java.lang.String)
+2015-10-14 16:14:05.179  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
+2015-10-14 16:14:05.179  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.updateComputer(org.ramon.model.Book)
+2015-10-14 16:14:05.179  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/]}&quot; onto public java.lang.String org.ramon.controller.BooksController.index()
+2015-10-14 16:14:05.187  INFO 8668 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@710fc94c
+2015-10-14 16:14:05.190  INFO 8668 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring FrameworkServlet ''
+2015-10-14 16:14:05.190  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2015-10-14 16:14:05.190  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 0 ms
+2015-10-14 16:14:05.201  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getBook(java.lang.String)
+2015-10-14 16:14:05.201  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
+2015-10-14 16:14:05.202  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getAllBooks()
+2015-10-14 16:14:05.202  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.deleteBook(java.lang.String)
+2015-10-14 16:14:05.202  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
+2015-10-14 16:14:05.202  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.updateComputer(org.ramon.model.Book)
+2015-10-14 16:14:05.202  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/]}&quot; onto public java.lang.String org.ramon.controller.BooksController.index()
+2015-10-14 16:14:05.209  INFO 8668 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@5ac09c5a
+2015-10-14 16:14:05.212  INFO 8668 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring FrameworkServlet ''
+2015-10-14 16:14:05.212  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2015-10-14 16:14:05.212  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 0 ms
+2015-10-14 16:14:05.221  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getBook(java.lang.String)
+2015-10-14 16:14:05.222  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
+2015-10-14 16:14:05.222  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getAllBooks()
+2015-10-14 16:14:05.222  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.deleteBook(java.lang.String)
+2015-10-14 16:14:05.222  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
+2015-10-14 16:14:05.222  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.updateComputer(org.ramon.model.Book)
+2015-10-14 16:14:05.223  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/]}&quot; onto public java.lang.String org.ramon.controller.BooksController.index()
+2015-10-14 16:14:05.229  INFO 8668 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@7a40b1c1
+2015-10-14 16:14:05.231  INFO 8668 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring FrameworkServlet ''
+2015-10-14 16:14:05.231  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2015-10-14 16:14:05.231  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 0 ms
+2015-10-14 16:14:05.236  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getBook(java.lang.String)
+2015-10-14 16:14:05.236  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
+2015-10-14 16:14:05.237  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getAllBooks()
+2015-10-14 16:14:05.237  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.deleteBook(java.lang.String)
+2015-10-14 16:14:05.237  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
+2015-10-14 16:14:05.237  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.updateComputer(org.ramon.model.Book)
+2015-10-14 16:14:05.237  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/]}&quot; onto public java.lang.String org.ramon.controller.BooksController.index()
+2015-10-14 16:14:05.243  INFO 8668 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@6ef9bf3
+2015-10-14 16:14:05.245  INFO 8668 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring FrameworkServlet ''
+2015-10-14 16:14:05.245  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2015-10-14 16:14:05.245  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 0 ms
+2015-10-14 16:14:05.254  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getBook(java.lang.String)
+2015-10-14 16:14:05.254  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
+2015-10-14 16:14:05.254  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getAllBooks()
+2015-10-14 16:14:05.254  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.deleteBook(java.lang.String)
+2015-10-14 16:14:05.255  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
+2015-10-14 16:14:05.255  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.updateComputer(org.ramon.model.Book)
+2015-10-14 16:14:05.255  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/]}&quot; onto public java.lang.String org.ramon.controller.BooksController.index()
+2015-10-14 16:14:05.265  INFO 8668 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@3bcf6fea
+2015-10-14 16:14:05.268  INFO 8668 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring FrameworkServlet ''
+2015-10-14 16:14:05.268  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2015-10-14 16:14:05.268  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 0 ms
+2015-10-14 16:14:05.275  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getBook(java.lang.String)
+2015-10-14 16:14:05.276  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
+2015-10-14 16:14:05.276  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getAllBooks()
+2015-10-14 16:14:05.276  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.deleteBook(java.lang.String)
+2015-10-14 16:14:05.276  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
+2015-10-14 16:14:05.277  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.updateComputer(org.ramon.model.Book)
+2015-10-14 16:14:05.277  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/]}&quot; onto public java.lang.String org.ramon.controller.BooksController.index()
+2015-10-14 16:14:05.283  INFO 8668 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@6540aa5a
+2015-10-14 16:14:05.285  INFO 8668 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring FrameworkServlet ''
+2015-10-14 16:14:05.285  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2015-10-14 16:14:05.285  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 0 ms
+2015-10-14 16:14:05.290  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getBook(java.lang.String)
+2015-10-14 16:14:05.291  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
+2015-10-14 16:14:05.291  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getAllBooks()
+2015-10-14 16:14:05.291  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.deleteBook(java.lang.String)
+2015-10-14 16:14:05.291  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
+2015-10-14 16:14:05.291  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.updateComputer(org.ramon.model.Book)
+2015-10-14 16:14:05.292  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/]}&quot; onto public java.lang.String org.ramon.controller.BooksController.index()
+2015-10-14 16:14:05.298  INFO 8668 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@4d4766f6
+2015-10-14 16:14:05.300  INFO 8668 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring FrameworkServlet ''
+2015-10-14 16:14:05.301  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2015-10-14 16:14:05.301  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 0 ms
+2015-10-14 16:14:05.310  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getBook(java.lang.String)
+2015-10-14 16:14:05.310  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
+2015-10-14 16:14:05.310  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}&quot; onto public java.util.List&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.getAllBooks()
+2015-10-14 16:14:05.310  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.deleteBook(java.lang.String)
+2015-10-14 16:14:05.311  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
+2015-10-14 16:14:05.311  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}&quot; onto public org.springframework.http.ResponseEntity&lt;org.ramon.model.Book&gt; org.ramon.controller.BooksController.updateComputer(org.ramon.model.Book)
+2015-10-14 16:14:05.311  INFO 8668 --- [    Test worker] ilder$StaticRequestMappingHandlerMapping : Mapped &quot;{[/SpringRestBooks/]}&quot; onto public java.lang.String org.ramon.controller.BooksController.index()
+2015-10-14 16:14:05.317  INFO 8668 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@23ac3a15
+2015-10-14 16:14:05.319  INFO 8668 --- [    Test worker] o.s.mock.web.MockServletContext          : Initializing Spring FrameworkServlet ''
+2015-10-14 16:14:05.319  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2015-10-14 16:14:05.319  INFO 8668 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 0 ms
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 2.7</a> at 14-10-2015 16:14:05</p>
+</div>
+</div>
+</body>
+</html>

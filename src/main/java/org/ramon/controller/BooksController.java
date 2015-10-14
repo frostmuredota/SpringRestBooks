@@ -15,6 +15,7 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
+import org.ramon.dao.BooksDao;
 import org.ramon.dao.BooksDaoImpl;
 import org.ramon.model.Book;
 import org.springframework.http.HttpStatus;
@@ -30,10 +31,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class BooksController {
     @Getter
     @Setter
-    private BooksDaoImpl daobook;
-
+    private BooksDao daobook;
     public BooksController() {
-        daobook = new BooksDaoImpl();
+        daobook=new BooksDaoImpl();
     }
 
     @RequestMapping("/")
