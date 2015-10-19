@@ -16,8 +16,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import org.ramon.dao.BooksDao;
-import org.ramon.dao.BooksDaoImpl;
 import org.ramon.model.Book;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,15 +31,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class BooksController {
     @Getter
     @Setter
+    @Autowired
     private BooksDao daobook;
-    public BooksController() {
-        daobook=new BooksDaoImpl();
-    }
-
-    @RequestMapping("/")
-    public String index() {
-        return "Greetings from Spring Boot!";
-    }
 
     @RequestMapping(value = "/get/{idBook}", method = GET, produces = { APPLICATION_JSON_VALUE })
     @ResponseBody
@@ -105,5 +98,4 @@ public class BooksController {
             return new ResponseEntity<Book>(NOT_FOUND);
         }
     }
-
 }

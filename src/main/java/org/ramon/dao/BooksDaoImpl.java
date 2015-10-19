@@ -7,15 +7,20 @@ import lombok.Getter;
 import lombok.Setter;
 
 import org.ramon.model.Book;
-
+import org.springframework.stereotype.Service;
+@Service
 public class BooksDaoImpl implements BooksDao {
     @Getter
     @Setter
     private List<Book> mybooks;
+    // book;
 
     public BooksDaoImpl() {
         mybooks = new ArrayList<Book>();
-        }
+        //book = new Book("1", "100 años de Soledad", "Editorial 1", new Author(
+          //      "Gabriel", "Márquez"));
+        //mybooks.add(book);
+    }
 
     @Override
     public List<Book> getListByAuthor(String authorName) {
@@ -25,20 +30,21 @@ public class BooksDaoImpl implements BooksDao {
         for (int i = 0; i < mybooks.size(); i++) {
             if (mybooks.get(i).getAuthor().getName().equals(authorName)) {
                 booksByAuthor.add(mybooks.get(i));
-                }
             }
-
-        return booksByAuthor;
         }
+        return booksByAuthor;
+    }
 
     @Override
-    public void deleteBook(String idBook) {
+    public Book deleteBook(String idBook) {
+        Book bookToDelete=null;
         for (int i = 0; i < mybooks.size(); i++) {
-            if(mybooks.get(i).getId().equals(idBook)){
+            if (mybooks.get(i).getId().equals(idBook)) {
+                bookToDelete=mybooks.get(i);
                 mybooks.remove(i);
             }
         }
-
+        return bookToDelete;
     }
 
     @Override
@@ -46,7 +52,7 @@ public class BooksDaoImpl implements BooksDao {
         Book findBook = null;
         for (int i = 0; i < mybooks.size(); i++) {
             if (mybooks.get(i).getId().equals(idBook)) {
-                findBook=mybooks.get(i);
+                findBook = mybooks.get(i);
             }
         }
         return findBook;
@@ -54,7 +60,7 @@ public class BooksDaoImpl implements BooksDao {
 
     @Override
     public void updateBook(Book book) {
-        if(exist(book.getId())){
+        if (exist(book.getId())) {
             Book bookToFind = getBook(book.getId());
             deleteBook(bookToFind.getId());
             mybooks.add(book);
@@ -63,7 +69,7 @@ public class BooksDaoImpl implements BooksDao {
 
     @Override
     public void addBook(Book b) {
-        if(!exist(b.getId())){
+        if (!exist(b.getId())) {
             mybooks.add(b);
         }
     }
@@ -77,16 +83,11 @@ public class BooksDaoImpl implements BooksDao {
     public boolean exist(String idBook) {
         boolean exist = false;
         for (int i = 0; i < mybooks.size(); i++) {
-            if(mybooks.get(i).getId().equals(idBook)){
-                exist=true;
+            if (mybooks.get(i).getId().equals(idBook)) {
+                exist = true;
             }
         }
         return exist;
-    }
-
-    @Override
-    public String sayHello() {
-        return "Hello";
     }
 
 }

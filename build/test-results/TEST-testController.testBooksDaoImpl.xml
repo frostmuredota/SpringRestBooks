@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="testController.testBooksDaoImpl" tests="4" skipped="0" failures="0" errors="0" timestamp="2015-10-19T22:27:44" hostname="ramon-Inspiron-5520" time="0.006">
+  <properties/>
+  <testcase name="testAddBook" classname="testController.testBooksDaoImpl" time="0.001"/>
+  <testcase name="testUpdateBook" classname="testController.testBooksDaoImpl" time="0.0"/>
+  <testcase name="testGetBook" classname="testController.testBooksDaoImpl" time="0.0"/>
+  <testcase name="testDeleteBook" classname="testController.testBooksDaoImpl" time="0.002"/>
+  <system-out><![CDATA[19:27:43.456 [Test worker] DEBUG o.s.t.c.j.SpringJUnit4ClassRunner - SpringJUnit4ClassRunner constructor called with [class testController.testBooksDaoImpl]
+19:27:43.464 [Test worker] DEBUG o.s.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+19:27:43.470 [Test worker] DEBUG o.s.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+19:27:43.480 [Test worker] DEBUG o.s.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [testController.testBooksDaoImpl] from class [org.springframework.test.context.support.DefaultTestContextBootstrapper]
+19:27:43.502 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - Found explicit ContextLoader class [org.springframework.boot.test.SpringApplicationContextLoader] for context configuration attributes [ContextConfigurationAttributes@29d412aa declaringClass = 'testController.testBooksDaoImpl', classes = '{class org.springframework.mock.web.MockServletContext}', locations = '{}', inheritLocations = true, initializers = '{}', inheritInitializers = true, name = [null], contextLoaderClass = 'org.springframework.boot.test.SpringApplicationContextLoader']
+19:27:43.509 [Test worker] DEBUG o.s.t.c.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [testController.testBooksDaoImpl]
+19:27:43.512 [Test worker] DEBUG o.s.t.c.s.DefaultTestContextBootstrapper - @TestExecutionListeners is not present for class [testController.testBooksDaoImpl]: using defaults.
+19:27:43.523 [Test worker] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+19:27:43.531 [Test worker] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/TransactionDefinition]
+19:27:43.532 [Test worker] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Could not instantiate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]. Specify custom listener classes or make the default listener classes (and their required dependencies) available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+19:27:43.534 [Test worker] INFO  o.s.t.c.s.DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@11a21d1d, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@50a99e1c, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@221fface, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6fcc99c4]
+19:27:43.537 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [testController.testBooksDaoImpl]
+19:27:43.538 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [testController.testBooksDaoImpl]
+19:27:43.539 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [testController.testBooksDaoImpl]
+19:27:43.539 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [testController.testBooksDaoImpl]
+19:27:43.543 [Test worker] DEBUG o.s.t.c.s.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@71ed56f4 testClass = testBooksDaoImpl, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@3256a180 testClass = testBooksDaoImpl, locations = '{}', classes = '{class org.springframework.mock.web.MockServletContext}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]], class annotated with @DirtiesContext [false] with mode [null].
+19:27:43.544 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [testController.testBooksDaoImpl]
+19:27:43.544 [Test worker] DEBUG o.s.t.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [testController.testBooksDaoImpl]
+19:27:43.546 [Test worker] DEBUG o.s.t.c.s.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@71ed56f4 testClass = testBooksDaoImpl, testInstance = testController.testBooksDaoImpl@7d23f63, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@3256a180 testClass = testBooksDaoImpl, locations = '{}', classes = '{class org.springframework.mock.web.MockServletContext}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextLoader = 'org.springframework.boot.test.SpringApplicationContextLoader', parent = [null]]]].
+19:27:43.621 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
+19:27:43.623 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
+19:27:43.623 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
+19:27:43.625 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [integrationTest] PropertySource with search precedence immediately lower than [systemEnvironment]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.2.6.RELEASE)
+
+2015-10-19 19:27:43.822  INFO 15309 --- [    Test worker] testController.testBooksDaoImpl          : Starting testBooksDaoImpl on ramon-Inspiron-5520 with PID 15309 (/home/ramon/workspace/SpringRestBooks/build/classes/test started by ramon in /home/ramon/workspace/SpringRestBooks)
+2015-10-19 19:27:44.045  INFO 15309 --- [    Test worker] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@6ba8b4d4: startup date [Mon Oct 19 19:27:44 CLT 2015]; root of context hierarchy
+2015-10-19 19:27:44.123  INFO 15309 --- [    Test worker] testController.testBooksDaoImpl          : Started testBooksDaoImpl in 0.496 seconds (JVM running for 1.312)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

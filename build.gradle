@@ -32,6 +32,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.3'
     // tag::actuator[]
     compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile ('com.jayway.restassured:spring-mock-mvc:2.6.0')
     // end::actuator[]
     // tag::tests[]
     testCompile("org.springframework.boot:spring-boot-starter-test")

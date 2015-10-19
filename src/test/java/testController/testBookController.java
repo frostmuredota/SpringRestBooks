@@ -1,262 +1,180 @@
 package testController;
 
-import static org.springframework.http.MediaType.APPLICATION_JSON;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.given;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.not;
+import static org.junit.Assert.assertThat;
 
-import java.util.Properties;
-
-import net.minidev.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.ramon.controller.BooksController;
+import org.ramon.dao.BooksDaoImpl;
 import org.ramon.model.Author;
 import org.ramon.model.Book;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockServletContext;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.google.gson.Gson;
-
+import com.jayway.restassured.http.ContentType;
+import com.jayway.restassured.module.mockmvc.RestAssuredMockMvc;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MockServletContext.class)
 @WebAppConfiguration
 public class testBookController {
-
-    Gson gson;
-    Properties properties;
-    Book book;
+    
+    List <Book> myBooks = new ArrayList<Book>();
+    List<Book>booksByAuthor = new ArrayList<Book>();
+    
+    Book book1,book2,book3;
+    
+    @Mock
+    BooksDaoImpl services;
+    
     @InjectMocks
     BooksController bookController;
-    private MockMvc mvc;
-
+    
     @Before
-    public void setUp() throws Exception {
-        gson = new Gson();
-        properties = new Properties();
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
-        book = new Book("1", "Librito", "Editorial 5", new Author("Miguel",
-                "Cervantes"));
-        mvc = MockMvcBuilders.standaloneSetup(new BooksController()).build();
-    }
-
-    // 1) test of get list empty
-    @Test
-    public void getListEmptyBooks() throws Exception {
-        mvc.perform(
-                get("/SpringRestBooks/list").accept(APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().string("[]"));
-    }
-
-    // 2) test list not Empty
-    @Test
-    public void testListNotEmpty() throws Exception {
-
-        String convertJson = gson.toJson(book);
-        JSONObject author = new JSONObject();
-        author.put("name", book.getAuthor().getName());
-        author.put("lastn", book.getAuthor().getLastn());
-
-        mvc.perform(
-                post("/SpringRestBooks/create").contentType(APPLICATION_JSON)
-                .content(convertJson))
-                .andExpect(jsonPath("$.id").value(book.getId()))
-                .andExpect(jsonPath("$.name").value(book.getName()))
-                .andExpect(jsonPath("$.editorial").value(book.getEditorial()))
-                .andExpect(jsonPath("$.author").value(author))
-                .andExpect(status().isCreated()).andReturn();
-
-        mvc.perform(
-                get("/SpringRestBooks/list").accept(APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(status().isOk())
-                .andExpect(content().string("[{\"id\":\"1\",\"name\":\"Librito\","
-                                        + "\"editorial\":\"Editorial 5\",\"author\":{\"name\":\"Miguel\","
-                                        + "\"lastn\":\"Cervantes\"}}]"));
-    }
-    // 2) test list by author
-    @Test
-    public void testListByAuthor() throws Exception {
-        String convertJson = gson.toJson(book);
-        JSONObject author = new JSONObject();
-        author.put("name", book.getAuthor().getName());
-        author.put("lastn", book.getAuthor().getLastn());
-        mvc.perform(
-                post("/SpringRestBooks/create").contentType(MediaType.APPLICATION_JSON)
-                .content(convertJson))
-                .andExpect(content().contentType(APPLICATION_JSON))
-                .andExpect(jsonPath("$.id").value(book.getId()))
-                .andExpect(jsonPath("$.name").value(book.getName()))
-                .andExpect(jsonPath("$.editorial").value(book.getEditorial()))
-                .andExpect(jsonPath("$.author").value(author))
-                .andExpect(status().isCreated()).andReturn();
-
-        mvc.perform(
-                get("/SpringRestBooks/listbyauthor/{authorName}", "Miguel")
-                        .accept(APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(
-                        content()
-                                .string("[{\"id\":\"1\",\"name\":\"Librito\","
-                                        + "\"editorial\":\"Editorial 5\",\"author\":{\"name\":\"Miguel\","
-                                        + "\"lastn\":\"Cervantes\"}}]"));
-    }
-
-    @Test
-    public void testEmptyListByAuthor() throws Exception {
-        mvc.perform(
-                get("/SpringRestBooks/listbyauthor/{authorName}", "Roberto")
-                .accept(APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(content().string("[]"));
-    }
-
-    // 2) test of create (POST) a new book
-    @Test
-    public void testCreateBook() throws Exception {
-        String convertJson = gson.toJson(book);
-        JSONObject author = new JSONObject();
-        author.put("name", book.getAuthor().getName());
-        author.put("lastn", book.getAuthor().getLastn());
-        mvc.perform(
-                post("/SpringRestBooks/create").contentType(APPLICATION_JSON)
-                .content(convertJson))
-                .andExpect(jsonPath("$.id").value(book.getId()))
-                .andExpect(jsonPath("$.name").value(book.getName()))
-                .andExpect(jsonPath("$.editorial").value(book.getEditorial()))
-                .andExpect(jsonPath("$.author").value(author))
-                .andExpect(status().isCreated()).andReturn();
-    }
-
-    // 3) test of create (POST) and then get (GET) a book
-    @Test
-    public void testGetBook() throws Exception {
-        String convertJson = gson.toJson(book);
-        JSONObject author = new JSONObject();
-        author.put("name", book.getAuthor().getName());
-        author.put("lastn", book.getAuthor().getLastn());
-        mvc.perform(
-                post("/SpringRestBooks/create").contentType(APPLICATION_JSON)
-                .content(convertJson))
-                .andExpect(jsonPath("$.id").value(book.getId()))
-                .andExpect(jsonPath("$.name").value(book.getName()))
-                .andExpect(jsonPath("$.editorial").value(book.getEditorial()))
-                .andExpect(jsonPath("$.author").value(author))
-                .andExpect(status().isCreated()).andReturn();
-
-        mvc.perform(
-                get("/SpringRestBooks/get/{idBook}", "1").accept(APPLICATION_JSON))
-                .andExpect(content().contentType(APPLICATION_JSON))
-                .andExpect(jsonPath("$id").value(book.getId()))
-                .andExpect(jsonPath("$.name").value(book.getName()))
-                .andExpect(jsonPath("$.editorial").value(book.getEditorial()))
-                .andExpect(jsonPath("$.author").value(author))
-                .andExpect(status().isOk())
-                .andReturn();
+        
+        book1= new Book("1", "100 anos de Soledad", "Editorial 1", new Author(
+                "Gabriel", "Marquez"));
+        book2=new Book("2", "Muerte Anunciada", "Editorial 2", new Author(
+                       "Gabriel", "Marquez"));
+        book3= new Book("3", "Libro de la Selva", "Editorial 3", new Author(
+                       "Pedro", "Marquez"));
+        myBooks.add(book1);
+        myBooks.add(book2);
+        myBooks.add(book3);
+        
+        booksByAuthor.add(book1);
+        booksByAuthor.add(book2);
+                
+        Mockito.when(services.exist("1")).thenReturn(true);
+        Mockito.when(services.exist("2")).thenReturn(true);
+        Mockito.when(services.exist("3")).thenReturn(true);
+        
+        Mockito.when(services.getBook("1")).thenReturn(book1);
+        Mockito.when(services.getBook("2")).thenReturn(book2);
+        Mockito.when(services.getBook("3")).thenReturn(book3);
+        
+        Mockito.when(services.deleteBook("1")).thenReturn(book1);
+        Mockito.when(services.deleteBook("2")).thenReturn(book2);
+        Mockito.when(services.deleteBook("3")).thenReturn(book3);
+  
+        Mockito.when(services.getAllBooks()).thenReturn(myBooks);
+        Mockito.when(services.getListByAuthor("Gabriel")).thenReturn(booksByAuthor);
+        
+        RestAssuredMockMvc.standaloneSetup(bookController);
 
     }
     @Test
-    // Delete a Book
-    public void testDeleteBook() throws Exception {
-        String convertJson = gson.toJson(book);
-        JSONObject author = new JSONObject();
-        author.put("name", book.getAuthor().getName());
-        author.put("lastn", book.getAuthor().getLastn());
-        mvc.perform(
-                post("/SpringRestBooks/create").contentType(MediaType.APPLICATION_JSON)
-                .content(convertJson))
-                .andExpect(content().contentType(APPLICATION_JSON))
-                .andExpect(jsonPath("$.id").value(book.getId()))
-                .andExpect(jsonPath("$.name").value(book.getName()))
-                .andExpect(jsonPath("$.editorial").value(book.getEditorial()))
-                .andExpect(jsonPath("$.author").value(author))
-                .andExpect(status().isCreated()).andReturn();
-
-        mvc.perform(
-                 delete("/SpringRestBooks/delete/{idBook}","1")
-                 .accept(MediaType.APPLICATION_JSON))
-                 .andExpect(content().contentType(APPLICATION_JSON))
-                 .andExpect(jsonPath("$.id").value(book.getId()))
-                 .andExpect(jsonPath("$.name").value(book.getName()))
-                 .andExpect(jsonPath("$.editorial").value(book.getEditorial()))
-                 .andExpect(jsonPath("$.author").value(author))
-                 .andExpect(status().isOk())
-                 .andReturn();
-
-    }
-    //DELETE A BOOK WHAT NOT EXIST
-    @Test
-    public void testDeleteNotExistBook()throws Exception{
-        mvc.perform(
-                 delete("/SpringRestBooks/delete/{idBook}","2")
-                 .contentType(APPLICATION_JSON))
-                 .andExpect(status().isNotFound());
-    }
-
-    @Test
-    public void testUpdateExistBook()throws Exception{
-        String convertJson = gson.toJson(book);
-        JSONObject author = new JSONObject();
-        author.put("name", book.getAuthor().getName());
-        author.put("lastn", book.getAuthor().getLastn());
-        mvc.perform(
-                post("/SpringRestBooks/create").contentType(APPLICATION_JSON)
-                .content(convertJson))
-                .andExpect(content().contentType(APPLICATION_JSON))
-                .andExpect(jsonPath("$.id").value(book.getId()))
-                .andExpect(jsonPath("$.name").value(book.getName()))
-                .andExpect(jsonPath("$.editorial").value(book.getEditorial()))
-                .andExpect(jsonPath("$.author").value(author))
-                .andExpect(status().isCreated()).andReturn();
-
-        Book bookUpdate = new Book("1", "Librin", "Editorial 6", new Author("Carlos",
-                "Cervantes"));
-        String convertToJson = gson.toJson(bookUpdate);
-        mvc.perform(
-                put("/SpringRestBooks/update").contentType(APPLICATION_JSON)
-                .content(convertToJson))
-                .andExpect(status().isOk())
-                .andReturn();
-
+    public void testGetBook(){
+        given().
+        when().
+            get("/SpringRestBooks/get/{idBook}",1).
+        then().
+            statusCode(200).
+            assertThat().
+            body("id",equalTo("1")).
+            body("name",equalTo("100 anos de Soledad")).
+            body("editorial",equalTo("Editorial 1")).
+            body("author.name",equalTo("Gabriel")).
+            body("author.lastn",equalTo("Marquez"));
     }
     @Test
-    public void testUpdateNotExistBook()throws Exception{
-        String convertJson = gson.toJson(book);
-        JSONObject author = new JSONObject();
-        author.put("name", book.getAuthor().getName());
-        author.put("lastn", book.getAuthor().getLastn());
-        mvc.perform(
-                post("/SpringRestBooks/create").contentType(APPLICATION_JSON)
-                .content(convertJson))
-                .andExpect(content().contentType(APPLICATION_JSON))
-                .andExpect(jsonPath("$.id").value(book.getId()))
-                .andExpect(jsonPath("$.name").value(book.getName()))
-                .andExpect(jsonPath("$.editorial").value(book.getEditorial()))
-                .andExpect(jsonPath("$.author").value(author))
-                .andExpect(status().isCreated()).andReturn();
-
-        Book bookUpdate = new Book("2", "Librin", "Editorial 6", new Author("Carlos",
-                "Cervantes"));
-        String convertToJson = gson.toJson(bookUpdate);
-        mvc.perform(
-                put("/SpringRestBooks/update").contentType(APPLICATION_JSON)
-                .content(convertToJson))
-                .andExpect(status().isNotFound());
-
+    public void testNotFoundBook(){
+        given().
+        when().
+            get("/SpringRestBooks/get/{idBook}",5).
+        then().
+            statusCode(404);  
     }
-
+    @Test
+    public void testCreateBook(){
+        given().
+            contentType(ContentType.JSON).
+            body(new Book("7","El Lobito","Editorial 7",new Author("Carlos","Fuentes"))).
+        when().
+            post("/SpringRestBooks/create").
+        then()
+            .statusCode(201);
+        
+    }
+    @Test
+    public void testFailCreateBook(){
+        given().
+            contentType(ContentType.JSON).
+            body(new Book("1","100 años","Alpahuara", new Author("Gabriel","García Márquez"))).
+        when().
+            post("/SpringRestBooks/create").
+        then()
+            .statusCode(406); 
+    }
+    @Test
+    public void testDeleteBook(){
+        given().
+        when().
+            delete("/SpringRestBooks/delete/{idBook}",3).
+        then().
+            statusCode(200).
+            body("id", equalTo("3")).
+            body("name", equalTo("Libro de la Selva")).
+            body("editorial", equalTo("Editorial 3")).
+            body("author.name", equalTo("Pedro")).
+            body("author.lastn", equalTo("Marquez")); ;
+    }
+    @Test
+    public void testUpdateBook(){
+        given().
+            contentType(ContentType.JSON).
+            body(new Book("1","100000 anos","Alpahuara", new Author("Carlos","Garcia"))).
+        when().
+            put("/SpringRestBooks/update").
+        then()
+            .statusCode(200).
+            body("id", equalTo("1")).
+            body("name", equalTo("100000 anos")).
+            body("editorial", equalTo("Alpahuara")).
+            body("author.name", equalTo("Carlos")).
+            body("author.lastn", equalTo("Garcia")); 
+    }
+    @Test
+    public void testFailUpdateBook(){
+        given().
+            contentType(ContentType.JSON).
+            body(new Book("10","100000 años","Alpahuara", new Author("Carlos","García Márquez"))).
+        when().
+            put("/SpringRestBooks/update").
+        then()
+            .statusCode(404); 
+    }
+    @Test
+    public void testFailDeleteBook(){
+        given().
+        when().
+            delete("/SpringRestBooks/delete/{idBook}",8).
+        then().
+            statusCode(404);
+    }
+    @Test
+    public void testGetAllBooks(){
+        String response = given().when().get("/SpringRestBooks/list").asString();
+        assertThat(response, is(not("[]")));
+    }
+    @Test
+    public void testGetListByAuthor(){
+        String response = given().when().get("/SpringRestBooks/listbyauthor/{authorName}","Gabriel").asString();
+        assertThat(response, is(not("[]")));
+    }
 }
