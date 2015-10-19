@@ -13,13 +13,9 @@ public class BooksDaoImpl implements BooksDao {
     @Getter
     @Setter
     private List<Book> mybooks;
-    // book;
 
     public BooksDaoImpl() {
         mybooks = new ArrayList<Book>();
-        //book = new Book("1", "100 años de Soledad", "Editorial 1", new Author(
-          //      "Gabriel", "Márquez"));
-        //mybooks.add(book);
     }
 
     @Override
