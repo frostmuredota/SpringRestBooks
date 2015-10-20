@@ -15,25 +15,31 @@ market application of Chrome.
 
 ## Using the REST Service
 *Result: Shows a list of books in JSON format.
+                                                                                       
       URL: http://localhost:8080/SpringRestBooks/list
       
 *Result: Shows a list of books in JSON format with the name of author for example "Gabriel"
+                                                                                          
       URL: http://localhost:8080/SpringRestBooks/listbyauthor/Gabriel
       
 *Result: Shows the details of the book with id:1 in * JSON format.
+
       URL: http://localhost:8080/SpringRestBooks/get/1
-
+                                                                                      
 *Result: Delete the book with the id:1.
+
       URL: http://localhost:8080/SpringRestBooks/delete/1
-
+                                                                                          
 *Result: Insert a book in the list.
+
       URL: http://localhost:8080/SpringRestBooks/create
-
-
+                                                                                           
+                                                                                           
 *Method: POST
       Header: Content-Type:application/json
-      Body: {"id":"1","name":"Book 1","editorial":"Editorial 1", "author": {"name":"Gustavo", "lastn":"Fernandez"}}
 
+      Body: {"id":"1","name":"Book 1","editorial":"Editorial 1", "author": {"name":"Gustavo", "lastn":"Fernandez"}}
+                                                                                           
 *Result: Update a book in the list.
       URL: http://localhost:8080/SpringRestBooks/update/
       
