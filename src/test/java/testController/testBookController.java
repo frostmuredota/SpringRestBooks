@@ -2,6 +2,7 @@ package testController;
 
 import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.given;
 import static org.hamcrest.Matchers.equalTo;
+import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,21 +13,15 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.ramon.controller.BooksController;
-import org.ramon.dao.BooksDaoImpl;
+import org.ramon.dao.BooksDao;
 import org.ramon.model.Author;
 import org.ramon.model.Book;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.mock.web.MockServletContext;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.jayway.restassured.http.ContentType;
 import com.jayway.restassured.module.mockmvc.RestAssuredMockMvc;
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = MockServletContext.class)
-@WebAppConfiguration
+@RunWith(MockitoJUnitRunner.class)
 public class testBookController {
     
     List <Book> myBooks = new ArrayList<Book>();
@@ -35,14 +30,13 @@ public class testBookController {
     Book book1,book2,book3;
     
     @Mock
-    BooksDaoImpl services;
+    BooksDao booksDao;
     
     @InjectMocks
     BooksController bookController;
     
     @Before
     public void setUp() {
-        MockitoAnnotations.initMocks(this);
         
         book1= new Book("1", "Amor en tiempos de colera", "Editorial 1", new Author(
                 "Gabriel", "Marquez"));
@@ -57,20 +51,20 @@ public class testBookController {
         booksByAuthor.add(book1);
         booksByAuthor.add(book2);
                 
-        Mockito.when(services.exist("1")).thenReturn(true);
-        Mockito.when(services.exist("2")).thenReturn(true);
-        Mockito.when(services.exist("3")).thenReturn(true);
+        when(booksDao.exist("1")).thenReturn(true);
+        when(booksDao.exist("2")).thenReturn(true);
+        when(booksDao.exist("3")).thenReturn(true);
         
-        Mockito.when(services.getBook("1")).thenReturn(book1);
-        Mockito.when(services.getBook("2")).thenReturn(book2);
-        Mockito.when(services.getBook("3")).thenReturn(book3);
+        when(booksDao.getBook("1")).thenReturn(book1);
+        when(booksDao.getBook("2")).thenReturn(book2);
+        when(booksDao.getBook("3")).thenReturn(book3);
         
-        Mockito.when(services.deleteBook("1")).thenReturn(book1);
-        Mockito.when(services.deleteBook("2")).thenReturn(book2);
-        Mockito.when(services.deleteBook("3")).thenReturn(book3);
+        Mockito.when(booksDao.deleteBook("1")).thenReturn(book1);
+        Mockito.when(booksDao.deleteBook("2")).thenReturn(book2);
+        Mockito.when(booksDao.deleteBook("3")).thenReturn(book3);
   
-        Mockito.when(services.getAllBooks()).thenReturn(myBooks);
-        Mockito.when(services.getListByAuthor("Gabriel")).thenReturn(booksByAuthor);
+        Mockito.when(booksDao.getAllBooks()).thenReturn(myBooks);
+        Mockito.when(booksDao.getListByAuthor("Gabriel")).thenReturn(booksByAuthor);
         
         RestAssuredMockMvc.standaloneSetup(bookController);
 

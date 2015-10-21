@@ -7,19 +7,14 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.ramon.dao.BooksDao;
 import org.ramon.dao.BooksDaoImpl;
 import org.ramon.model.Author;
 import org.ramon.model.Book;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.mock.web.MockServletContext;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = MockServletContext.class)
 public class testBooksDaoImpl {
     
-    BooksDaoImpl bookDaoImpl;
+    BooksDao bookDaoImpl;
     Book book;
 
     @Before

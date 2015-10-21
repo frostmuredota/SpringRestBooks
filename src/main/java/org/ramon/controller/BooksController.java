@@ -12,7 +12,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.PUT;
 
 import java.util.List;
 
-import lombok.Getter;
 import lombok.Setter;
 
 import org.ramon.dao.BooksDao;
@@ -29,7 +28,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/SpringRestBooks")
 public class BooksController {
-    @Getter
     @Setter
     @Autowired
     private BooksDao daobook;
@@ -90,7 +88,7 @@ public class BooksController {
 
     @RequestMapping(value = "/update", method = PUT, produces = "application/json", consumes = "application/json")
     @ResponseBody
-    public ResponseEntity<Book> updateComputer(@RequestBody Book book) {
+    public ResponseEntity<Book> updateBook(@RequestBody Book book) {
         if (daobook.exist(book.getId())) {
             this.daobook.updateBook(book);
             return new ResponseEntity<Book>(book, OK);
