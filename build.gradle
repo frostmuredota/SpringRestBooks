@@ -21,7 +21,9 @@ jar {
 repositories {
     mavenCentral()
 }
+
 defaultTasks 'clean', 'build','sonarRunner'
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 

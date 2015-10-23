@@ -1,0 +1,11 @@
+#Untracked files
+.project
+.classpath
+.gradle
+!build.gradle
+!setting.gradle
+.settings/
+bin/
+build/
+ramon/
+*.class
