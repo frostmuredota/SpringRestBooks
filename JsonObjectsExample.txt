@@ -1,0 +1,29 @@
+{
+ "id":"1",
+ "name":"Libro de la Selva",
+ "editorial":"Editorial 1",
+ "author":{
+     "name":"Pedrito",
+     "lastName":"Márquez"
+ }
+}
+
+{
+ "id":"2",
+ "name":"Cronicas de una Muerte Anunciada",
+ "editorial":"Editorial 2",
+ "author":{
+     "name":"Edgar",
+     "lastName":"Alan Poe"
+ }
+}
+
+{
+ "id":"3",
+ "name":"Colmillo Blanco",
+ "editorial":"Editorial 3",
+ "author":{
+     "name":"Jack",
+     "lastName":"London"
+ }
+}
