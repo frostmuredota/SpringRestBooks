@@ -1,424 +1,0 @@
-ã19:11:44.866 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-å19:11:44.870 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-û19:11:44.870 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
-ú19:11:45.041 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getAllBooks()
-…19:11:45.048 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.getBook(java.lang.String)
-“19:11:45.049 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.deleteBook(java.lang.String)
-Ê19:11:45.049 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.updateBook(org.ramon.model.Book)
-≈19:11:45.050 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
-Á19:11:45.050 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
-m19:11:45.251 [Test worker] DEBUG org.jboss.logging - Logging Provider: org.jboss.logging.Slf4jLoggerProvider
-q19:11:45.252 [Test worker] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 5.1.3.Final
-“19:11:45.256 [Test worker] DEBUG o.h.v.i.e.r.DefaultTraversableResolver - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
-æ19:11:45.262 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
-à19:11:45.263 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy25
-ë19:11:45.268 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
-ê19:11:45.272 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
-ª19:11:45.326 [Test worker] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@17d6ae38
-¡19:11:45.403 [Test worker] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Looking for exception mappings: org.springframework.test.web.servlet.setup.StubWebApplicationContext@17d6ae38
-[19:11:45.424 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
-ñ19:11:45.434 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
-ó19:11:45.434 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
-è19:11:45.437 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-ê19:11:45.437 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-⁄19:11:45.437 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
-k19:11:45.437 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-o19:11:45.438 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
-¨19:11:45.440 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
-£19:11:45.440 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using LocaleResolver [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@22ffb7b3]
-õ19:11:45.440 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using ThemeResolver [org.springframework.web.servlet.theme.FixedThemeResolver@4104acb7]
-∏19:11:45.440 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using RequestToViewNameTranslator [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@69173afa]
-£19:11:45.440 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using FlashMapManager [org.springframework.web.servlet.support.SessionFlashMapManager@7a4bcf59]
-”19:11:45.441 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
-y19:11:45.441 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 3 ms
-f19:11:45.441 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
-ï19:11:45.552 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing GET request for [/SpringRestBooks/list]
-§19:11:45.555 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking up handler method for path /SpringRestBooks/list
-Â19:11:45.557 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Returning handler method [public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getAllBooks()]
-z19:11:45.558 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Last-Modified value for [/SpringRestBooks/list] is: -1
-Ø19:11:45.605 [Test worker] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Written [[org.ramon.model.Book@6730093d, org.ramon.model.Book@1e084275, org.ramon.model.Book@1a736ae5]] as "application/json" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@78b6ef6d]
-¥19:11:45.605 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
-b19:11:45.606 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
-ã19:11:46.409 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-å19:11:46.409 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-û19:11:46.410 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
-ú19:11:46.420 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getAllBooks()
-…19:11:46.420 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.getBook(java.lang.String)
-“19:11:46.421 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.deleteBook(java.lang.String)
-Ê19:11:46.421 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.updateBook(org.ramon.model.Book)
-≈19:11:46.421 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
-Á19:11:46.422 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
-“19:11:46.434 [Test worker] DEBUG o.h.v.i.e.r.DefaultTraversableResolver - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
-æ19:11:46.435 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
-à19:11:46.435 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy25
-ë19:11:46.435 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
-ê19:11:46.436 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
-ª19:11:46.443 [Test worker] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@3a004e69
-¡19:11:46.448 [Test worker] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Looking for exception mappings: org.springframework.test.web.servlet.setup.StubWebApplicationContext@3a004e69
-[19:11:46.448 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
-ñ19:11:46.449 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
-ó19:11:46.449 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
-è19:11:46.450 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-ê19:11:46.450 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-⁄19:11:46.450 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
-k19:11:46.450 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-o19:11:46.450 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
-¨19:11:46.450 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
-£19:11:46.450 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using LocaleResolver [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@5c5b8829]
-õ19:11:46.450 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using ThemeResolver [org.springframework.web.servlet.theme.FixedThemeResolver@20f08261]
-∏19:11:46.451 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using RequestToViewNameTranslator [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@314794af]
-£19:11:46.451 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using FlashMapManager [org.springframework.web.servlet.support.SessionFlashMapManager@5be85048]
-”19:11:46.451 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
-y19:11:46.451 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
-f19:11:46.451 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
-ó19:11:46.452 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing PUT request for [/SpringRestBooks/update]
-¶19:11:46.452 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking up handler method for path /SpringRestBooks/update
-ë19:11:46.453 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.updateBook(org.ramon.model.Book)]
-Ë19:11:46.482 [Test worker] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read [class org.ramon.model.Book] as "application/json" with [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@56b2784b]
-Ê19:11:46.508 [Test worker] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [org.ramon.model.Book@453470c4] as "application/json" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@56b2784b]
-¥19:11:46.508 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
-b19:11:46.508 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
-	ã19:11:46.562 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-	å19:11:46.563 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-	û19:11:46.563 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
-	ú19:11:46.570 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getAllBooks()
-	…19:11:46.570 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.getBook(java.lang.String)
-	“19:11:46.570 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.deleteBook(java.lang.String)
-	Ê19:11:46.571 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.updateBook(org.ramon.model.Book)
-	≈19:11:46.571 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
-	Á19:11:46.572 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
-	“19:11:46.581 [Test worker] DEBUG o.h.v.i.e.r.DefaultTraversableResolver - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
-	æ19:11:46.582 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
-	à19:11:46.582 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy25
-	ë19:11:46.583 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
-	ê19:11:46.583 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
-	ª19:11:46.585 [Test worker] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@65e117f5
-	¡19:11:46.588 [Test worker] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Looking for exception mappings: org.springframework.test.web.servlet.setup.StubWebApplicationContext@65e117f5
-	[19:11:46.589 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
-	ñ19:11:46.590 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
-	ó19:11:46.590 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
-	è19:11:46.590 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-	ê19:11:46.590 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-	⁄19:11:46.590 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
-	k19:11:46.590 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-	o19:11:46.590 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
-	¨19:11:46.591 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
-	£19:11:46.591 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using LocaleResolver [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@156f609c]
-	õ19:11:46.591 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using ThemeResolver [org.springframework.web.servlet.theme.FixedThemeResolver@7f81f8cd]
-	∏19:11:46.591 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using RequestToViewNameTranslator [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2af1d47a]
-	¢19:11:46.591 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using FlashMapManager [org.springframework.web.servlet.support.SessionFlashMapManager@d037a7b]
-	”19:11:46.591 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
-	y19:11:46.591 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-	f19:11:46.591 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
-	•19:11:46.592 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing GET request for [/SpringRestBooks/listbyauthor/Gabriel]
-	¥19:11:46.593 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking up handler method for path /SpringRestBooks/listbyauthor/Gabriel
-	˘19:11:46.594 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Returning handler method [public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getListByAuthor(java.lang.String)]
-	ä19:11:46.594 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Last-Modified value for [/SpringRestBooks/listbyauthor/Gabriel] is: -1
-	è19:11:46.602 [Test worker] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Written [[org.ramon.model.Book@a49726b, org.ramon.model.Book@68efb381]] as "application/json" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@3c18ebd4]
-	¥19:11:46.602 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
-	b19:11:46.602 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
-
-ã19:11:46.662 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-
-å19:11:46.662 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-
-û19:11:46.662 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
-
-ú19:11:46.668 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getAllBooks()
-
-…19:11:46.668 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.getBook(java.lang.String)
-
-“19:11:46.668 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.deleteBook(java.lang.String)
-
-Ê19:11:46.669 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.updateBook(org.ramon.model.Book)
-
-≈19:11:46.669 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
-
-Á19:11:46.669 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
-
-“19:11:46.679 [Test worker] DEBUG o.h.v.i.e.r.DefaultTraversableResolver - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
-
-æ19:11:46.679 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
-
-à19:11:46.679 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy25
-
-ë19:11:46.680 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
-
-ê19:11:46.680 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
-
-ª19:11:46.681 [Test worker] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@35ed039c
-
-¡19:11:46.685 [Test worker] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Looking for exception mappings: org.springframework.test.web.servlet.setup.StubWebApplicationContext@35ed039c
-
-[19:11:46.685 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
-
-ñ19:11:46.686 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
-
-ó19:11:46.686 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
-
-è19:11:46.686 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-
-ê19:11:46.686 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-
-⁄19:11:46.686 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
-
-k19:11:46.686 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-
-o19:11:46.686 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
-
-¨19:11:46.686 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
-
-£19:11:46.686 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using LocaleResolver [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@3d2e46cc]
-
-õ19:11:46.686 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using ThemeResolver [org.springframework.web.servlet.theme.FixedThemeResolver@7b97d6aa]
-
-∏19:11:46.686 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using RequestToViewNameTranslator [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@17a0399d]
-
-£19:11:46.687 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using FlashMapManager [org.springframework.web.servlet.support.SessionFlashMapManager@6595ac9a]
-
-”19:11:46.687 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
-
-y19:11:46.687 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
-
-f19:11:46.687 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
-
-ò19:11:46.688 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing POST request for [/SpringRestBooks/create]
-
-¶19:11:46.688 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking up handler method for path /SpringRestBooks/create
-
-ë19:11:46.689 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.createBook(org.ramon.model.Book)]
-
-Ë19:11:46.691 [Test worker] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read [class org.ramon.model.Book] as "application/json" with [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@2a428ec2]
-
-¥19:11:46.693 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
-
-b19:11:46.694 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
-ã19:11:46.698 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-å19:11:46.698 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-û19:11:46.698 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
-ú19:11:46.703 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getAllBooks()
-…19:11:46.704 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.getBook(java.lang.String)
-“19:11:46.704 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.deleteBook(java.lang.String)
-Ê19:11:46.704 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.updateBook(org.ramon.model.Book)
-≈19:11:46.705 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
-Á19:11:46.705 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
-“19:11:46.715 [Test worker] DEBUG o.h.v.i.e.r.DefaultTraversableResolver - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
-æ19:11:46.716 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
-à19:11:46.716 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy25
-ë19:11:46.716 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
-ê19:11:46.717 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
-ª19:11:46.718 [Test worker] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@795f9f0e
-¡19:11:46.722 [Test worker] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Looking for exception mappings: org.springframework.test.web.servlet.setup.StubWebApplicationContext@795f9f0e
-[19:11:46.723 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
-ñ19:11:46.723 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
-ó19:11:46.723 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
-è19:11:46.724 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-ê19:11:46.724 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-⁄19:11:46.724 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
-k19:11:46.724 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-o19:11:46.724 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
-¨19:11:46.724 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
-£19:11:46.724 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using LocaleResolver [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@4cd0b638]
-õ19:11:46.724 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using ThemeResolver [org.springframework.web.servlet.theme.FixedThemeResolver@4dd9a264]
-∏19:11:46.724 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using RequestToViewNameTranslator [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@27d273d5]
-£19:11:46.724 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using FlashMapManager [org.springframework.web.servlet.support.SessionFlashMapManager@7941e507]
-”19:11:46.724 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
-y19:11:46.724 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-f19:11:46.725 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
-ñ19:11:46.725 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing GET request for [/SpringRestBooks/get/1]
-•19:11:46.725 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking up handler method for path /SpringRestBooks/get/1
-ä19:11:46.726 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.getBook(java.lang.String)]
-{19:11:46.727 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Last-Modified value for [/SpringRestBooks/get/1] is: -1
-Ê19:11:46.730 [Test worker] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [org.ramon.model.Book@3069fd61] as "application/json" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@30a3b38a]
-¥19:11:46.730 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
-b19:11:46.730 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
-ã19:11:46.784 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-å19:11:46.784 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-û19:11:46.784 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
-ú19:11:46.789 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getAllBooks()
-…19:11:46.789 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.getBook(java.lang.String)
-“19:11:46.790 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.deleteBook(java.lang.String)
-Ê19:11:46.790 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.updateBook(org.ramon.model.Book)
-≈19:11:46.790 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
-Á19:11:46.790 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
-“19:11:46.799 [Test worker] DEBUG o.h.v.i.e.r.DefaultTraversableResolver - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
-æ19:11:46.800 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
-à19:11:46.800 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy25
-ë19:11:46.800 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
-ê19:11:46.801 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
-ª19:11:46.802 [Test worker] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@50963c3a
-¡19:11:46.806 [Test worker] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Looking for exception mappings: org.springframework.test.web.servlet.setup.StubWebApplicationContext@50963c3a
-[19:11:46.806 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
-ñ19:11:46.807 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
-ó19:11:46.807 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
-è19:11:46.807 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-ê19:11:46.807 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-⁄19:11:46.807 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
-k19:11:46.807 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-o19:11:46.807 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
-¨19:11:46.808 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
-¢19:11:46.808 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using LocaleResolver [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@7a83d18]
-õ19:11:46.808 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using ThemeResolver [org.springframework.web.servlet.theme.FixedThemeResolver@3b4ea7c7]
-∏19:11:46.808 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using RequestToViewNameTranslator [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@7b9cfe8e]
-£19:11:46.808 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using FlashMapManager [org.springframework.web.servlet.support.SessionFlashMapManager@6861ed06]
-”19:11:46.808 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
-y19:11:46.808 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
-f19:11:46.808 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
-ú19:11:46.809 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing DELETE request for [/SpringRestBooks/delete/8]
-®19:11:46.809 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking up handler method for path /SpringRestBooks/delete/8
-ç19:11:46.810 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.deleteBook(java.lang.String)]
-¥19:11:46.812 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
-b19:11:46.812 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
-ã19:11:46.819 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-å19:11:46.819 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-û19:11:46.819 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
-ú19:11:46.824 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getAllBooks()
-…19:11:46.824 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.getBook(java.lang.String)
-“19:11:46.824 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.deleteBook(java.lang.String)
-Ê19:11:46.825 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.updateBook(org.ramon.model.Book)
-≈19:11:46.825 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
-Á19:11:46.825 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
-“19:11:46.834 [Test worker] DEBUG o.h.v.i.e.r.DefaultTraversableResolver - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
-æ19:11:46.834 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
-à19:11:46.834 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy25
-ë19:11:46.835 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
-ê19:11:46.835 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
-ª19:11:46.836 [Test worker] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@60d9b77b
-¡19:11:46.840 [Test worker] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Looking for exception mappings: org.springframework.test.web.servlet.setup.StubWebApplicationContext@60d9b77b
-[19:11:46.841 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
-ñ19:11:46.841 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
-ó19:11:46.841 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
-è19:11:46.841 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-ê19:11:46.841 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-⁄19:11:46.842 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
-k19:11:46.842 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-o19:11:46.842 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
-¨19:11:46.842 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
-£19:11:46.842 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using LocaleResolver [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@22903473]
-õ19:11:46.842 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using ThemeResolver [org.springframework.web.servlet.theme.FixedThemeResolver@34c03b0c]
-∏19:11:46.842 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using RequestToViewNameTranslator [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@3335a9cc]
-£19:11:46.842 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using FlashMapManager [org.springframework.web.servlet.support.SessionFlashMapManager@45d86cee]
-”19:11:46.842 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
-y19:11:46.842 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-f19:11:46.842 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
-ò19:11:46.843 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing POST request for [/SpringRestBooks/create]
-¶19:11:46.843 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking up handler method for path /SpringRestBooks/create
-ë19:11:46.844 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.createBook(org.ramon.model.Book)]
-Ë19:11:46.846 [Test worker] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read [class org.ramon.model.Book] as "application/json" with [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@6648eb8a]
-Ê19:11:46.849 [Test worker] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [org.ramon.model.Book@5365a414] as "application/json" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@6648eb8a]
-¥19:11:46.849 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
-b19:11:46.849 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
-ã19:11:46.893 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-å19:11:46.893 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-û19:11:46.893 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
-ú19:11:46.896 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getAllBooks()
-…19:11:46.897 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.getBook(java.lang.String)
-“19:11:46.897 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.deleteBook(java.lang.String)
-Ê19:11:46.897 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.updateBook(org.ramon.model.Book)
-≈19:11:46.897 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
-Á19:11:46.898 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
-“19:11:46.904 [Test worker] DEBUG o.h.v.i.e.r.DefaultTraversableResolver - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
-æ19:11:46.904 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
-à19:11:46.904 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy25
-ë19:11:46.904 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
-ê19:11:46.904 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
-ª19:11:46.905 [Test worker] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@111936ba
-¡19:11:46.908 [Test worker] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Looking for exception mappings: org.springframework.test.web.servlet.setup.StubWebApplicationContext@111936ba
-[19:11:46.909 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
-ñ19:11:46.909 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
-ó19:11:46.909 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
-è19:11:46.909 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-ê19:11:46.910 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-⁄19:11:46.910 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
-k19:11:46.910 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-o19:11:46.910 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
-¨19:11:46.910 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
-£19:11:46.910 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using LocaleResolver [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@33f01d31]
-õ19:11:46.910 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using ThemeResolver [org.springframework.web.servlet.theme.FixedThemeResolver@2ac82b6a]
-∏19:11:46.910 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using RequestToViewNameTranslator [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@493d9fe4]
-°19:11:46.910 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using FlashMapManager [org.springframework.web.servlet.support.SessionFlashMapManager@a070fc]
-”19:11:46.910 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
-y19:11:46.910 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-f19:11:46.910 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
-ú19:11:46.911 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing DELETE request for [/SpringRestBooks/delete/3]
-®19:11:46.911 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking up handler method for path /SpringRestBooks/delete/3
-ç19:11:46.912 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.deleteBook(java.lang.String)]
-Ê19:11:46.915 [Test worker] DEBUG o.s.w.s.m.m.a.HttpEntityMethodProcessor - Written [org.ramon.model.Book@330afc4c] as "application/json" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@5872023c]
-¥19:11:46.916 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
-b19:11:46.916 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
-ã19:11:46.965 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-å19:11:46.965 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-û19:11:46.965 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
-ú19:11:46.969 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getAllBooks()
-…19:11:46.969 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.getBook(java.lang.String)
-“19:11:46.970 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.deleteBook(java.lang.String)
-Ê19:11:46.970 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.updateBook(org.ramon.model.Book)
-≈19:11:46.970 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
-Á19:11:46.970 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
-“19:11:46.979 [Test worker] DEBUG o.h.v.i.e.r.DefaultTraversableResolver - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
-æ19:11:46.979 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
-à19:11:46.980 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy25
-ë19:11:46.980 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
-ê19:11:46.980 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
-ª19:11:46.982 [Test worker] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@142b33ba
-¡19:11:46.985 [Test worker] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Looking for exception mappings: org.springframework.test.web.servlet.setup.StubWebApplicationContext@142b33ba
-[19:11:46.986 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
-ñ19:11:46.986 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
-ó19:11:46.986 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
-è19:11:46.987 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-ê19:11:46.987 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-⁄19:11:46.987 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
-k19:11:46.987 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-o19:11:46.987 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
-¨19:11:46.987 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
-£19:11:46.987 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using LocaleResolver [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@2a2c6b2a]
-õ19:11:46.987 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using ThemeResolver [org.springframework.web.servlet.theme.FixedThemeResolver@18bfec1a]
-∏19:11:46.987 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using RequestToViewNameTranslator [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1755256f]
-£19:11:46.987 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using FlashMapManager [org.springframework.web.servlet.support.SessionFlashMapManager@49480ee6]
-”19:11:46.987 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
-y19:11:46.988 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 1 ms
-f19:11:46.988 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
-ñ19:11:46.988 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing GET request for [/SpringRestBooks/get/6]
-•19:11:46.988 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking up handler method for path /SpringRestBooks/get/6
-ä19:11:46.989 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.getBook(java.lang.String)]
-{19:11:46.989 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Last-Modified value for [/SpringRestBooks/get/6] is: -1
-¥19:11:46.992 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
-b19:11:46.992 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request
-ã19:11:46.997 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-å19:11:46.997 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-û19:11:46.997 [Test worker] DEBUG o.s.core.env.StandardEnvironment - Initialized StandardEnvironment with PropertySources [systemProperties,systemEnvironment]
-ú19:11:47.000 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/list],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getAllBooks()
-…19:11:47.000 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/get/{idBook}],methods=[GET],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.getBook(java.lang.String)
-“19:11:47.001 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/delete/{idBook}],methods=[DELETE],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.deleteBook(java.lang.String)
-Ê19:11:47.001 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/update],methods=[PUT],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.updateBook(org.ramon.model.Book)
-≈19:11:47.001 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/listbyauthor/{authorName}],methods=[GET],produces=[application/json]}" onto public java.util.List<org.ramon.model.Book> org.ramon.controller.BooksController.getListByAuthor(java.lang.String)
-Á19:11:47.001 [Test worker] INFO  o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Mapped "{[/SpringRestBooks/create],methods=[POST],consumes=[application/json],produces=[application/json]}" onto public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.createBook(org.ramon.model.Book)
-“19:11:47.006 [Test worker] DEBUG o.h.v.i.e.r.DefaultTraversableResolver - Cannot find javax.persistence.Persistence on classpath. Assuming non JPA 2 environment. All properties will per default be traversable.
-æ19:11:47.006 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom MessageInterpolator of type org.springframework.validation.beanvalidation.LocaleContextMessageInterpolator
-à19:11:47.006 [Test worker] DEBUG o.h.v.i.engine.ConfigurationImpl - Setting custom ParameterNameProvider of type com.sun.proxy.$Proxy25
-ë19:11:47.007 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - Trying to load META-INF/validation.xml for XML based Validator configuration.
-ê19:11:47.007 [Test worker] DEBUG o.h.v.i.xml.ValidationXmlParser - No META-INF/validation.xml found. Using annotation based configuration only.
-ª19:11:47.008 [Test worker] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@67ccbae6
-¡19:11:47.010 [Test worker] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Looking for exception mappings: org.springframework.test.web.servlet.setup.StubWebApplicationContext@67ccbae6
-[19:11:47.010 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Initializing servlet ''
-ñ19:11:47.010 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletConfigInitParams] PropertySource with lowest search precedence
-ó19:11:47.010 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [servletContextInitParams] PropertySource with lowest search precedence
-è19:11:47.010 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemProperties] PropertySource with lowest search precedence
-ê19:11:47.011 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Adding [systemEnvironment] PropertySource with lowest search precedence
-⁄19:11:47.011 [Test worker] DEBUG o.s.w.c.s.StandardServletEnvironment - Initialized StandardServletEnvironment with PropertySources [servletConfigInitParams,servletContextInitParams,systemProperties,systemEnvironment]
-k19:11:47.011 [Test worker] INFO  o.s.mock.web.MockServletContext - Initializing Spring FrameworkServlet ''
-o19:11:47.011 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization started
-¨19:11:47.011 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Unable to locate MultipartResolver with name 'multipartResolver': no multipart request handling provided
-£19:11:47.011 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using LocaleResolver [org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver@703b099c]
-õ19:11:47.011 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using ThemeResolver [org.springframework.web.servlet.theme.FixedThemeResolver@4d23df4b]
-∏19:11:47.011 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using RequestToViewNameTranslator [org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@49e32d94]
-£19:11:47.011 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Using FlashMapManager [org.springframework.web.servlet.support.SessionFlashMapManager@2f12952a]
-”19:11:47.011 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Published WebApplicationContext of servlet '' as ServletContext attribute with name [org.springframework.web.servlet.FrameworkServlet.CONTEXT.]
-y19:11:47.011 [Test worker] INFO  o.s.t.w.s.TestDispatcherServlet - FrameworkServlet '': initialization completed in 0 ms
-f19:11:47.011 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Servlet '' configured successfully
-ó19:11:47.012 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - DispatcherServlet with name '' processing PUT request for [/SpringRestBooks/update]
-¶19:11:47.012 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Looking up handler method for path /SpringRestBooks/update
-ë19:11:47.012 [Test worker] DEBUG o.s.t.w.s.s.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping - Returning handler method [public org.springframework.http.ResponseEntity<org.ramon.model.Book> org.ramon.controller.BooksController.updateBook(org.ramon.model.Book)]
-Á19:11:47.014 [Test worker] DEBUG o.s.w.s.m.m.a.RequestResponseBodyMethodProcessor - Read [class org.ramon.model.Book] as "application/json" with [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@7cd1ebd]
-¥19:11:47.015 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Null ModelAndView returned to DispatcherServlet with name '': assuming HandlerAdapter completed request handling
-b19:11:47.015 [Test worker] DEBUG o.s.t.w.s.TestDispatcherServlet - Successfully completed request

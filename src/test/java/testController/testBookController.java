@@ -81,7 +81,17 @@ public class testBookController {
             body("name",equalTo("Amor en tiempos de colera")).
             body("editorial",equalTo("Editorial 1")).
             body("author.name",equalTo("Gabriel")).
-            body("author.lastn",equalTo("Marquez"));
+            body("author.lastName",equalTo("Marquez"));
+    }
+    @Test
+    public void testGetBookListEmpty(){
+        List <Book> emptyBooks = new ArrayList<Book>();
+        Mockito.when(booksDao.getAllBooks()).thenReturn(emptyBooks);
+        given().
+        when().
+            get("/SpringRestBooks/get/{idBook}",1).
+        then().
+            statusCode(404);
     }
     @Test
     public void testNotFoundBook(){
@@ -105,7 +115,7 @@ public class testBookController {
             body("name",equalTo("El Lobito")).
             body("editorial",equalTo("Editorial 7")).
             body("author.name",equalTo("Carlos")).
-            body("author.lastn",equalTo("Fuentes"));
+            body("author.lastName",equalTo("Fuentes"));
         
     }
     @Test
@@ -129,7 +139,7 @@ public class testBookController {
             body("name", equalTo("Libro de la Selva")).
             body("editorial", equalTo("Editorial 3")).
             body("author.name", equalTo("Pedro")).
-            body("author.lastn", equalTo("Marquez")); ;
+            body("author.lastName", equalTo("Marquez")); ;
     }
     @Test
     public void testUpdateBook(){
@@ -144,7 +154,7 @@ public class testBookController {
             body("name", equalTo("Colmillo Blanco")).
             body("editorial", equalTo("Alpahuara")).
             body("author.name", equalTo("Carlos")).
-            body("author.lastn", equalTo("Garcia")); 
+            body("author.lastName", equalTo("Garcia")); 
     }
     @Test
     public void testFailUpdateBook(){
@@ -176,20 +186,20 @@ public class testBookController {
         body("name[0]",equalTo("Amor en tiempos de colera")).
         body("editorial[0]",equalTo("Editorial 1")).
         body("author[0].name",equalTo("Gabriel")).
-        body("author[0].lastn",equalTo("Marquez"));
+        body("author[0].lastName",equalTo("Marquez"));
     }
     @Test
     public void testGetListByAuthor(){
         given().
         contentType(ContentType.JSON).
     when().
-        get("/SpringRestBooks/listbyauthor/{authorName}","Gabriel").
+        get("/SpringRestBooks/listByAuthor/{authorName}","Gabriel").
     then()
         .statusCode(200).
         body("id[0]", equalTo("1")).
         body("name[0]",equalTo("Amor en tiempos de colera")).
         body("editorial[0]",equalTo("Editorial 1")).
         body("author[0].name",equalTo("Gabriel")).
-        body("author[0].lastn",equalTo("Marquez"));
+        body("author[0].lastName",equalTo("Marquez"));
     }
 }

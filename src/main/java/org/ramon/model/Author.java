@@ -11,5 +11,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Author {
     private String name;
-    private String lastn;
+    private String lastName;
 }

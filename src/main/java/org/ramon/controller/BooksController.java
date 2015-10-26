@@ -48,7 +48,7 @@ public class BooksController {
         }
     }
 
-    @RequestMapping(value = "/listbyauthor/{authorName}", method = GET, produces = { APPLICATION_JSON_VALUE })
+    @RequestMapping(value = "/listByAuthor/{authorName}", method = GET, produces = { APPLICATION_JSON_VALUE })
     @ResponseBody
     public List<Book> getListByAuthor(
             @PathVariable("authorName") String authorName) {
