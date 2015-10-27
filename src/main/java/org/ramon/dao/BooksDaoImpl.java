@@ -12,10 +12,10 @@ import org.springframework.stereotype.Service;
 public class BooksDaoImpl implements BooksDao {
     @Getter
     @Setter
-    private List<Book> mybooks;
+    private List<Book> library;
 
     public BooksDaoImpl() {
-        mybooks = new ArrayList<Book>();
+        library = new ArrayList<Book>();
     }
 
     @Override
@@ -23,9 +23,9 @@ public class BooksDaoImpl implements BooksDao {
 
         // Get List of books with the name of the author
         List<Book> booksByAuthor = new ArrayList<Book>();
-        for (int i = 0; i < mybooks.size(); i++) {
-            if (mybooks.get(i).getAuthor().getName().equals(authorName)) {
-                booksByAuthor.add(mybooks.get(i));
+        for (int i = 0; i < library.size(); i++) {
+            if (library.get(i).getAuthor().getName().equals(authorName)) {
+                booksByAuthor.add(library.get(i));
             }
         }
         return booksByAuthor;
@@ -34,10 +34,10 @@ public class BooksDaoImpl implements BooksDao {
     @Override
     public Book deleteBook(String idBook) {
         Book bookToDelete=null;
-        for (int i = 0; i < mybooks.size(); i++) {
-            if (mybooks.get(i).getId().equals(idBook)) {
-                bookToDelete=mybooks.get(i);
-                mybooks.remove(i);
+        for (int i = 0; i < library.size(); i++) {
+            if (library.get(i).getId().equals(idBook)) {
+                bookToDelete=library.get(i);
+                library.remove(i);
             }
         }
         return bookToDelete;
@@ -46,9 +46,9 @@ public class BooksDaoImpl implements BooksDao {
     @Override
     public Book getBook(String idBook) {
         Book findBook = null;
-        for (int i = 0; i < mybooks.size(); i++) {
-            if (mybooks.get(i).getId().equals(idBook)) {
-                findBook = mybooks.get(i);
+        for (int i = 0; i < library.size(); i++) {
+            if (library.get(i).getId().equals(idBook)) {
+                findBook = library.get(i);
             }
         }
         return findBook;
@@ -59,27 +59,27 @@ public class BooksDaoImpl implements BooksDao {
         if (exist(book.getId())) {
             Book bookToFind = getBook(book.getId());
             deleteBook(bookToFind.getId());
-            mybooks.add(book);
+            library.add(book);
         }
     }
 
     @Override
     public void addBook(Book b) {
         if (!exist(b.getId())) {
-            mybooks.add(b);
+            library.add(b);
         }
     }
 
     @Override
     public List<Book> getAllBooks() {
-        return mybooks;
+        return library;
     }
 
     @Override
     public boolean exist(String idBook) {
         boolean exist = false;
-        for (int i = 0; i < mybooks.size(); i++) {
-            if (mybooks.get(i).getId().equals(idBook)) {
+        for (int i = 0; i < library.size(); i++) {
+            if (library.get(i).getId().equals(idBook)) {
                 exist = true;
             }
         }
