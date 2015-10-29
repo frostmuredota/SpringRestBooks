@@ -1,7 +1,7 @@
 #Untracked files
 .project
 .classpath
-.gradle
+.gradle/
 !build.gradle
 !setting.gradle
 .settings/
