@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/SpringRestBooks")
+@RequestMapping("/book")
 public class BooksController {
     @Setter
     @Autowired

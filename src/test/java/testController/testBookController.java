@@ -73,7 +73,7 @@ public class testBookController {
     public void testGetBook(){
         given().
         when().
-            get("/SpringRestBooks/get/{idBook}",1).
+            get("/book/get/{idBook}",1).
         then().
             statusCode(200).
             assertThat().
@@ -89,7 +89,7 @@ public class testBookController {
         Mockito.when(booksDao.getAllBooks()).thenReturn(emptyBooks);
         given().
         when().
-            get("/SpringRestBooks/get/{idBook}",1).
+            get("/book/get/{idBook}",1).
         then().
             statusCode(404);
     }
@@ -97,7 +97,7 @@ public class testBookController {
     public void testNotFoundBook(){
         given().
         when().
-            get("/SpringRestBooks/get/{idBook}",6).
+            get("/book/get/{idBook}",6).
         then().
             statusCode(404);  
     }
@@ -107,7 +107,7 @@ public class testBookController {
             contentType(ContentType.JSON).
             body(new Book("7","El Lobito","Editorial 7",new Author("Carlos","Fuentes"))).
         when().
-            post("/SpringRestBooks/create").
+            post("/book/create").
         then()
             .statusCode(201).
             assertThat().
@@ -124,7 +124,7 @@ public class testBookController {
             contentType(ContentType.JSON).
             body(new Book("1","100 años","Alpahuara", new Author("Gabriel","García Márquez"))).
         when().
-            post("/SpringRestBooks/create").
+            post("/book/create").
         then()
             .statusCode(406); 
     }
@@ -132,7 +132,7 @@ public class testBookController {
     public void testDeleteBook(){
         given().
         when().
-            delete("/SpringRestBooks/delete/{idBook}",3).
+            delete("/book/delete/{idBook}",3).
         then().
             statusCode(200).
             body("id", equalTo("3")).
@@ -147,7 +147,7 @@ public class testBookController {
             contentType(ContentType.JSON).
             body(new Book("1","Colmillo Blanco","Alpahuara", new Author("Carlos","Garcia"))).
         when().
-            put("/SpringRestBooks/update").
+            put("/book/update").
         then()
             .statusCode(200).
             body("id", equalTo("1")).
@@ -162,7 +162,7 @@ public class testBookController {
             contentType(ContentType.JSON).
             body(new Book("10","Doce Cuentos Peregrinos","Alpahuara", new Author("Carlos","García Márquez"))).
         when().
-            put("/SpringRestBooks/update").
+            put("/book/update").
         then()
             .statusCode(404); 
     }
@@ -170,7 +170,7 @@ public class testBookController {
     public void testFailDeleteBook(){
         given().
         when().
-            delete("/SpringRestBooks/delete/{idBook}",8).
+            delete("/book/delete/{idBook}",8).
         then().
             statusCode(404);
     }
@@ -179,7 +179,7 @@ public class testBookController {
         given().
         contentType(ContentType.JSON).
     when().
-        get("/SpringRestBooks/list").
+        get("/book/list").
     then()
         .statusCode(200).
         body("id[0]", equalTo("1")).
@@ -193,7 +193,7 @@ public class testBookController {
         given().
         contentType(ContentType.JSON).
     when().
-        get("/SpringRestBooks/listByAuthor/{authorName}","Gabriel").
+        get("/book/listByAuthor/{authorName}","Gabriel").
     then()
         .statusCode(200).
         body("id[0]", equalTo("1")).
