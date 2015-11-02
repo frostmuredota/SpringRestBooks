@@ -61,6 +61,7 @@ sonarRunner {
         property "sonar.jdbc.driverClassName", "com.mysql.jdbc.Driver"
         property "sonar.jdbc.username", "sonarqubeusr"
         property "sonar.jdbc.password", "s0n4rus3r"
+        property "sonar.sources","src/"
     }
 }
 
