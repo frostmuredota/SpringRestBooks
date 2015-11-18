@@ -1,38 +1,44 @@
 # SYNOPSIS
 Spring Rest Books Project
 
-tags: REST, JayWay,rest-assured
+Java Version for run the Project : 1.8
+
+tags: REST, JayWay,rest-assured,Spring Boot
 
 This project REST is created using Spring Boot and JUnit with
-rest-assured for the test of the differents requests exist in
+rest-assured for the test of the different requests exist in
 the project.
 
+## Important! 
+If you have issues with the port of Spring Boot, you can change the port
+in the "application.properties" file what you will find in the resources folder.
+
 ## The application
-For you can run this project, is neccessary use a tools what help us 
-to test the differents request. For this cause, I recommend the extension for
-Chrome call Postman. For apply Postman to Chrome, is neccessary search in the 
+For you can run this project, is necessary use a tools what help us 
+to test the different request. For this cause, I recommend the extension for
+Chrome call Postman. For apply Postman to Chrome, is necessary search in the 
 market application of Chrome.
 
 ## Using the REST Service
 *Result: Shows a list of books in JSON format.
                                                                                        
-      URL: http://localhost:8080/SpringRestBooks/list
+      URL: http://localhost:9090/book/list
       
 *Result: Shows a list of books in JSON format with the name of author for example "Gabriel"
                                                                                           
-      URL: http://localhost:8080/SpringRestBooks/listbyauthor/Gabriel
+      URL: http://localhost:9090/book/listbyauthor/Gabriel
       
 *Result: Shows the details of the book with id:1 in * JSON format.
 
-      URL: http://localhost:8080/SpringRestBooks/get/1
+      URL: http://localhost:9090/book/get/1
                                                                                       
 *Result: Delete the book with the id:1.
 
-      URL: http://localhost:8080/SpringRestBooks/delete/1
+      URL: http://localhost:9090/book/delete/1
                                                                                           
 *Result: Insert a book in the list.
 
-      URL: http://localhost:8080/SpringRestBooks/create
+      URL: http://localhost:9090/book/create
                                                                                            
                                                                                            
 *Method: POST
@@ -41,7 +47,7 @@ market application of Chrome.
       Body: {"id":"1","name":"Book 1","editorial":"Editorial 1", "author": {"name":"Gustavo", "lastn":"Fernandez"}}
                                                                                            
 *Result: Update a book in the list.
-      URL: http://localhost:8080/SpringRestBooks/update/
+      URL: http://localhost:9090/book/update/
       
       
 * Sonar check:

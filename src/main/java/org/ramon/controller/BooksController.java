@@ -4,7 +4,6 @@ import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.NOT_ACCEPTABLE;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 import static org.springframework.http.HttpStatus.OK;
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
@@ -17,7 +16,6 @@ import lombok.Setter;
 import org.ramon.dao.BooksDao;
 import org.ramon.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,74 +28,75 @@ import org.springframework.web.bind.annotation.RestController;
 public class BooksController {
     @Setter
     @Autowired
-    private BooksDao daobook;
+    private BooksDao bookDao;
 
-    @RequestMapping(value = "/get/{idBook}", method = GET, produces = { APPLICATION_JSON_VALUE })
+    @RequestMapping(value = "/get/{idBook}", method = GET)
     @ResponseBody
     public ResponseEntity<Book> getBook(@PathVariable("idBook") String idBook) {
-        boolean listBooksNotEmpty =!this.daobook.getAllBooks().isEmpty();
+        boolean listBooksNotEmpty = !this.bookDao.getAllBooks().isEmpty();
+
         if (listBooksNotEmpty) {
-            if (daobook.exist(idBook)) {
-                return new ResponseEntity<Book>(this.daobook.getBook(idBook),
-                        HttpStatus.OK);
+            if (bookDao.exist(idBook)) {
+                return new ResponseEntity<Book>(this.bookDao.getBook(idBook),
+                        OK);
             } else {
                 return new ResponseEntity<Book>(NOT_FOUND);
             }
-
         } else {
             return new ResponseEntity<Book>(NOT_FOUND);
         }
     }
 
-    @RequestMapping(value = "/listByAuthor/{authorName}", method = GET, produces = { APPLICATION_JSON_VALUE })
+    @RequestMapping(value = "/listByAuthor/{authorName}", method = GET)
     @ResponseBody
     public List<Book> getListByAuthor(
             @PathVariable("authorName") String authorName) {
-        return daobook.getListByAuthor(authorName);
+        return bookDao.getListByAuthor(authorName);
 
     }
 
-    @RequestMapping(value = "/list", method = GET, produces = { APPLICATION_JSON_VALUE })
+    @RequestMapping(value = "/list", method = GET)
     @ResponseBody
     public List<Book> getAllBooks() {
-        return daobook.getAllBooks();
+        return bookDao.getAllBooks();
     }
 
-    @RequestMapping(value = "/delete/{idBook}", method = DELETE, produces = { APPLICATION_JSON_VALUE })
+    @RequestMapping(value = "/delete/{idBook}", method = DELETE)
     @ResponseBody
     public ResponseEntity<Book> deleteBook(@PathVariable("idBook") String idBook) {
-        boolean bookExist = daobook.exist(idBook);
-            if (bookExist) {
-                Book book = daobook.getBook(idBook);
-                daobook.deleteBook(idBook);
-                return new ResponseEntity<Book>(book, OK);
-            } else {
-                return new ResponseEntity<Book>(NOT_FOUND);
-            }
+        boolean bookExist = bookDao.exist(idBook);
+        if (bookExist) {
+            Book book = bookDao.getBook(idBook);
+            bookDao.deleteBook(idBook);
+            return new ResponseEntity<Book>(book, OK);
+        } else {
+            return new ResponseEntity<Book>(NOT_FOUND);
+        }
 
     }
 
-    @RequestMapping(value = "/create", method = POST, produces = "application/json", consumes = "application/json")
+    @RequestMapping(value = "/create", method = POST)
     @ResponseBody
     public ResponseEntity<Book> createBook(@RequestBody Book book) {
-        boolean bookNotExist = !daobook.exist(book.getId());
+        boolean bookNotExist = !bookDao.exist(book.getId());
         if (bookNotExist) {
-            this.daobook.addBook(book);
+            this.bookDao.addBook(book);
             return new ResponseEntity<Book>(book, CREATED);
         } else {
             return new ResponseEntity<Book>(NOT_ACCEPTABLE);
         }
     }
 
-    @RequestMapping(value = "/update", method = PUT, produces = "application/json", consumes = "application/json")
+    @RequestMapping(value = "/update", method = PUT)
     @ResponseBody
     public ResponseEntity<Book> updateBook(@RequestBody Book book) {
-        boolean bookExist = daobook.exist(book.getId());
+        boolean bookExist = bookDao.exist(book.getId());
         if (bookExist) {
-            this.daobook.updateBook(book);
+            this.bookDao.updateBook(book);
             return new ResponseEntity<Book>(book, OK);
         } else {
             return new ResponseEntity<Book>(NOT_FOUND);
         }
     }
+
 }

@@ -1,6 +1,11 @@
 package testController;
 
+import static com.jayway.restassured.http.ContentType.JSON;
 import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.given;
+import static org.apache.http.HttpStatus.SC_CREATED;
+import static org.apache.http.HttpStatus.SC_NOT_ACCEPTABLE;
+import static org.apache.http.HttpStatus.SC_NOT_FOUND;
+import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.Mockito.when;
 
@@ -50,7 +55,7 @@ public class testBookController {
         
         booksByAuthor.add(book1);
         booksByAuthor.add(book2);
-                
+          
         when(booksDao.exist("1")).thenReturn(true);
         when(booksDao.exist("2")).thenReturn(true);
         when(booksDao.exist("3")).thenReturn(true);
@@ -59,13 +64,13 @@ public class testBookController {
         when(booksDao.getBook("2")).thenReturn(book2);
         when(booksDao.getBook("3")).thenReturn(book3);
         
-        Mockito.when(booksDao.deleteBook("1")).thenReturn(book1);
-        Mockito.when(booksDao.deleteBook("2")).thenReturn(book2);
-        Mockito.when(booksDao.deleteBook("3")).thenReturn(book3);
+        when(booksDao.deleteBook("1")).thenReturn(book1);
+        when(booksDao.deleteBook("2")).thenReturn(book2);
+        when(booksDao.deleteBook("3")).thenReturn(book3);
   
-        Mockito.when(booksDao.getAllBooks()).thenReturn(myBooks);
-        Mockito.when(booksDao.getListByAuthor("Gabriel")).thenReturn(booksByAuthor);
-        
+        when(booksDao.getAllBooks()).thenReturn(myBooks);
+        when(booksDao.getListByAuthor("Gabriel")).thenReturn(booksByAuthor);
+   
         RestAssuredMockMvc.standaloneSetup(bookController);
 
     }
@@ -75,13 +80,13 @@ public class testBookController {
         when().
             get("/book/get/{idBook}",1).
         then().
-            statusCode(200).
             assertThat().
             body("id",equalTo("1")).
             body("name",equalTo("Amor en tiempos de colera")).
             body("editorial",equalTo("Editorial 1")).
             body("author.name",equalTo("Gabriel")).
-            body("author.lastName",equalTo("Marquez"));
+            body("author.lastName",equalTo("Marquez")).
+            statusCode(SC_OK);
     }
     @Test
     public void testGetBookListEmpty(){
@@ -91,7 +96,7 @@ public class testBookController {
         when().
             get("/book/get/{idBook}",1).
         then().
-            statusCode(404);
+            statusCode(SC_NOT_FOUND);
     }
     @Test
     public void testNotFoundBook(){
@@ -99,7 +104,7 @@ public class testBookController {
         when().
             get("/book/get/{idBook}",6).
         then().
-            statusCode(404);  
+            statusCode(SC_NOT_FOUND);  
     }
     @Test
     public void testCreateBook(){
@@ -109,7 +114,7 @@ public class testBookController {
         when().
             post("/book/create").
         then()
-            .statusCode(201).
+            .statusCode(SC_CREATED).
             assertThat().
             body("id",equalTo("7")).
             body("name",equalTo("El Lobito")).
@@ -121,12 +126,12 @@ public class testBookController {
     @Test
     public void testFailCreateBook(){
         given().
-            contentType(ContentType.JSON).
+            contentType(JSON).
             body(new Book("1","100 años","Alpahuara", new Author("Gabriel","García Márquez"))).
         when().
             post("/book/create").
         then()
-            .statusCode(406); 
+            .statusCode(SC_NOT_ACCEPTABLE); 
     }
     @Test
     public void testDeleteBook(){
@@ -134,12 +139,12 @@ public class testBookController {
         when().
             delete("/book/delete/{idBook}",3).
         then().
-            statusCode(200).
             body("id", equalTo("3")).
             body("name", equalTo("Libro de la Selva")).
             body("editorial", equalTo("Editorial 3")).
             body("author.name", equalTo("Pedro")).
-            body("author.lastName", equalTo("Marquez")); ;
+            body("author.lastName", equalTo("Marquez"))
+            .statusCode(SC_OK);
     }
     @Test
     public void testUpdateBook(){
@@ -148,13 +153,13 @@ public class testBookController {
             body(new Book("1","Colmillo Blanco","Alpahuara", new Author("Carlos","Garcia"))).
         when().
             put("/book/update").
-        then()
-            .statusCode(200).
+        then().
             body("id", equalTo("1")).
             body("name", equalTo("Colmillo Blanco")).
             body("editorial", equalTo("Alpahuara")).
             body("author.name", equalTo("Carlos")).
-            body("author.lastName", equalTo("Garcia")); 
+            body("author.lastName", equalTo("Garcia")).
+            statusCode(SC_OK); 
     }
     @Test
     public void testFailUpdateBook(){
@@ -164,7 +169,7 @@ public class testBookController {
         when().
             put("/book/update").
         then()
-            .statusCode(404); 
+            .statusCode(SC_NOT_FOUND); 
     }
     @Test
     public void testFailDeleteBook(){
@@ -172,7 +177,7 @@ public class testBookController {
         when().
             delete("/book/delete/{idBook}",8).
         then().
-            statusCode(404);
+            statusCode(SC_NOT_FOUND);
     }
     @Test
     public void testGetAllBooks(){
@@ -180,13 +185,13 @@ public class testBookController {
         contentType(ContentType.JSON).
     when().
         get("/book/list").
-    then()
-        .statusCode(200).
+    then().
         body("id[0]", equalTo("1")).
         body("name[0]",equalTo("Amor en tiempos de colera")).
         body("editorial[0]",equalTo("Editorial 1")).
         body("author[0].name",equalTo("Gabriel")).
-        body("author[0].lastName",equalTo("Marquez"));
+        body("author[0].lastName",equalTo("Marquez"))
+        .statusCode(SC_OK);
     }
     @Test
     public void testGetListByAuthor(){
@@ -194,12 +199,12 @@ public class testBookController {
         contentType(ContentType.JSON).
     when().
         get("/book/listByAuthor/{authorName}","Gabriel").
-    then()
-        .statusCode(200).
+    then().
         body("id[0]", equalTo("1")).
         body("name[0]",equalTo("Amor en tiempos de colera")).
         body("editorial[0]",equalTo("Editorial 1")).
         body("author[0].name",equalTo("Gabriel")).
-        body("author[0].lastName",equalTo("Marquez"));
+        body("author[0].lastName",equalTo("Marquez"))
+        .statusCode(SC_OK);
     }
 }
