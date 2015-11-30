@@ -37,8 +37,7 @@ public class BooksController {
 
         if (listBooksNotEmpty) {
             if (bookDao.exist(idBook)) {
-                return new ResponseEntity<Book>(this.bookDao.getBook(idBook),
-                        OK);
+                return new ResponseEntity<Book>(this.bookDao.getBook(idBook),OK);
             } else {
                 return new ResponseEntity<Book>(NOT_FOUND);
             }
@@ -65,11 +64,14 @@ public class BooksController {
     @ResponseBody
     public ResponseEntity<Book> deleteBook(@PathVariable("idBook") String idBook) {
         boolean bookExist = bookDao.exist(idBook);
+        
         if (bookExist) {
+            
             Book book = bookDao.getBook(idBook);
             bookDao.deleteBook(idBook);
             return new ResponseEntity<Book>(book, OK);
         } else {
+            
             return new ResponseEntity<Book>(NOT_FOUND);
         }
 
@@ -79,10 +81,14 @@ public class BooksController {
     @ResponseBody
     public ResponseEntity<Book> createBook(@RequestBody Book book) {
         boolean bookNotExist = !bookDao.exist(book.getId());
+        
         if (bookNotExist) {
             this.bookDao.addBook(book);
+            
             return new ResponseEntity<Book>(book, CREATED);
+            
         } else {
+            
             return new ResponseEntity<Book>(NOT_ACCEPTABLE);
         }
     }
@@ -91,10 +97,13 @@ public class BooksController {
     @ResponseBody
     public ResponseEntity<Book> updateBook(@RequestBody Book book) {
         boolean bookExist = bookDao.exist(book.getId());
+        
         if (bookExist) {
             this.bookDao.updateBook(book);
+            
             return new ResponseEntity<Book>(book, OK);
         } else {
+            
             return new ResponseEntity<Book>(NOT_FOUND);
         }
     }

@@ -1,15 +1,19 @@
 package org.ramon.dao;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import org.ramon.dao.exceptions.SaveBookException;
+import org.ramon.dao.exceptions.UpdateBookException;
 import org.ramon.model.Book;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BooksDaoImpl implements BooksDao {
     private final List<Book> library;
-    Book auxBook=null;
+    
     
     public BooksDaoImpl() {
         library = new ArrayList<Book>();
@@ -31,46 +35,56 @@ public class BooksDaoImpl implements BooksDao {
 
     @Override
     public Book deleteBook(String idBook) {
-
-        for (Book book : library) {
-            if(book.getId().equals(idBook)){
-                auxBook = book;
+        Book book = null;
+        
+        for (Book item : library) {
+            if(item.getId().equals(idBook)){
+                book = item;
             }
         }
         
-        library.remove(auxBook);
+        library.remove(book);
        
-        return auxBook;
+        return book;
     }
 
     @Override
-    public Book getBook(String idBook) {
-       
+    public Book getBook(String idBook) {  
+        Book book = null;
         
-        for (Book book : library) {
-            if(book.getId().equals(idBook)){
-                auxBook = book;
+        for (Book item : library) {
+            if(item.getId().equals(idBook)){
+                book = item;
             }
         }
         
-        return auxBook;
+        return book;
     }
 
     @Override
-    public void updateBook(Book book) {
+    public void updateBook(Book bookToUpdate) {
+        Book book = null;
+        String bookId = bookToUpdate.getId();
+        boolean canUpdateBook = exist(bookId) && isNotBlank(bookId);
         
-        if (exist(book.getId())) {
-            auxBook = getBook(book.getId());
-            deleteBook(auxBook.getId());
-            library.add(book);
+        if (canUpdateBook) {
+            book = getBook(bookId);
+            deleteBook(book.getId());
+            library.add(bookToUpdate);
+        }else{
+            throw new UpdateBookException("Sorry , the book can't be updated");  
         }
     }
 
     @Override
-    public void addBook(Book book) {
+    public void addBook(Book book){
+        String bookId = book.getId();
+        boolean canAddBook = notExist(bookId) && isNotBlank(bookId);
         
-        if (!exist(book.getId())) {
-            library.add(book);
+        if (canAddBook) {
+             library.add(book);
+        }else{
+           throw new SaveBookException("Sorry , the book can't be added"); 
         }
     }
 
@@ -82,6 +96,10 @@ public class BooksDaoImpl implements BooksDao {
     @Override
     public boolean exist(String idBook) {
         return getBook(idBook)!=null;
+    }
+    
+    public boolean notExist(String idBook){
+        return !exist(idBook);
     }
 
 }
