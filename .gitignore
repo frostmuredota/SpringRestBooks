@@ -7,5 +7,4 @@
 .settings/
 bin/
 build/
-ramon/
 *.class
