@@ -1,11 +1,9 @@
 package org.ramon.builder;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-
 import org.junit.Test;
 import org.ramon.model.Author;
+
+import static org.junit.Assert.*;
 
 public class AuthorBuilderTest {
     

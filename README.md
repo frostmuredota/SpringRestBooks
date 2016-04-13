@@ -1,7 +1,7 @@
 # SYNOPSIS
 Spring Rest Books Project
 
-Java Version for run the Project : 1.8
+Java Version for run the Project : 1.7
 
 tags: REST, JayWay,rest-assured,Spring Boot
 
@@ -22,23 +22,23 @@ market application of Chrome.
 ## Using the REST Service
 *Result: Shows a list of books in JSON format.
                                                                                        
-      URL: http://localhost:9090/book/list
+      URL: http://localhost:8080/book/list
       
 *Result: Shows a list of books in JSON format with the name of author for example "Gabriel"
                                                                                           
-      URL: http://localhost:9090/book/listbyauthor/Gabriel
+      URL: http://localhost:8080/book/listbyauthor/Gabriel
       
 *Result: Shows the details of the book with id:1 in * JSON format.
 
-      URL: http://localhost:9090/book/get/1
+      URL: http://localhost:8080/book/get/1
                                                                                       
 *Result: Delete the book with the id:1.
 
-      URL: http://localhost:9090/book/delete/1
+      URL: http://localhost:8080/book/delete/1
                                                                                           
 *Result: Insert a book in the list.
 
-      URL: http://localhost:9090/book/create
+      URL: http://localhost:8080/book/create
                                                                                            
                                                                                            
 *Method: POST
@@ -47,21 +47,7 @@ market application of Chrome.
       Body: {"id":"1","name":"Book 1","editorial":"Editorial 1", "author": {"name":"Gustavo", "lastn":"Fernandez"}}
                                                                                            
 *Result: Update a book in the list.
-      URL: http://localhost:9090/book/update/
+      URL: http://localhost:8080/book/update/
       
-      
-* Sonar check:
-
-http://sonarchile.nisum.com/dashboard/index/20142
-
-* Gitlab project:
-
-http://gitlab.nisumlatam.com/rduran/SpringRestBooks
-
-* Repository in Gitlab
-
-git@gitlab.nisumlatam.com:rduran/SpringRestBooks.git
-
-* Jenkins Project:
-
-http://jenkins-cl.nisum.com/job/SpringRestBooks/
+## Run the project
+ For run the project, write the command "gradle bootRun" in the terminal.

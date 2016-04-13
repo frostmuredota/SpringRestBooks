@@ -1,10 +1,7 @@
 package org.ramon.builder;
 
-import lombok.NoArgsConstructor;
-
 import org.ramon.model.Author;
 
-@NoArgsConstructor               
 public class AuthorBuilder {
     
     private BookBuilder bookBuilder;
@@ -15,7 +12,10 @@ public class AuthorBuilder {
     public AuthorBuilder(BookBuilder bookBuilder) {
         this.bookBuilder = bookBuilder;
     }
-    
+
+    public AuthorBuilder() {
+    }
+
     public AuthorBuilder withName(String name){
         this.name=name;
         return this;

@@ -1,15 +1,13 @@
 package org.ramon.dao;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.ramon.builder.BookBuilder;
 import org.ramon.dao.exceptions.SaveBookException;
 import org.ramon.dao.exceptions.UpdateBookException;
 import org.ramon.model.Book;
+
+import static org.junit.Assert.*;
 
 public class BooksDaoImplTest {
     

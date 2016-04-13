@@ -1,17 +1,7 @@
 package testController;
 
-import static com.jayway.restassured.http.ContentType.JSON;
-import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.given;
-import static org.apache.http.HttpStatus.SC_CREATED;
-import static org.apache.http.HttpStatus.SC_NOT_ACCEPTABLE;
-import static org.apache.http.HttpStatus.SC_NOT_FOUND;
-import static org.apache.http.HttpStatus.SC_OK;
-import static org.hamcrest.Matchers.equalTo;
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import com.jayway.restassured.http.ContentType;
+import com.jayway.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,8 +14,14 @@ import org.ramon.dao.BooksDao;
 import org.ramon.model.Author;
 import org.ramon.model.Book;
 
-import com.jayway.restassured.http.ContentType;
-import com.jayway.restassured.module.mockmvc.RestAssuredMockMvc;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.jayway.restassured.http.ContentType.JSON;
+import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.given;
+import static org.apache.http.HttpStatus.*;
+import static org.hamcrest.Matchers.equalTo;
+import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class testBookController {
     
