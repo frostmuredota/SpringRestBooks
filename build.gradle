@@ -20,10 +20,10 @@ repositories {
     mavenCentral()
 }
 
-defaultTasks 'clean', 'test','sonarRunner'
+defaultTasks 'clean', 'test','bootRun'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
 
 dependencies {
     compile 'org.codehaus.jackson:jackson-core-asl:1.9.8'
@@ -47,21 +47,3 @@ dependencies {
 task wrapper(type: Wrapper) {
     gradleVersion = '2.3'
 }
-
-apply plugin: 'sonar-runner'
-
-sonarRunner {
-    sonarProperties {
-        property "sonar.projectKey", "SpringRestBooks"
-        property "sonar.projectName" , "SpringRestBooks"
-        property "sonar.host.url", "http://sonarchile.nisum.com"
-        property "sonar.jdbc.url", "jdbc:mysql://sonarchile.nisum.com:3306/sonar"
-        property "sonar.jdbc.driverClassName", "com.mysql.jdbc.Driver"
-        property "sonar.jdbc.username", "sonarqubeusr"
-        property "sonar.jdbc.password", "s0n4rus3r"
-        property "sonar.sources","src/"
-        property "sonar.exclusions","src/test/java/**"
-        property "sonar.test.exclusions","src/main/java/**"
-    }
-}
-
