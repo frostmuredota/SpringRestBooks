@@ -10,3 +10,5 @@ build/
 *.class
 *.iml
 .idea/
+*.ipr
+*.iws
