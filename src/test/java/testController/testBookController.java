@@ -13,6 +13,7 @@ import org.ramon.controller.BooksController;
 import org.ramon.dao.BooksDao;
 import org.ramon.model.Author;
 import org.ramon.model.Book;
+import org.ramon.service.BookService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,8 @@ import static com.jayway.restassured.http.ContentType.JSON;
 import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.given;
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.equalTo;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class testBookController {
@@ -29,6 +32,9 @@ public class testBookController {
     List<Book>booksByAuthor = new ArrayList<Book>();
     
     Book book1,book2,book3;
+
+    @Mock
+    BookService bookService;
     
     @Mock
     BooksDao booksDao;
@@ -66,7 +72,7 @@ public class testBookController {
   
         when(booksDao.getAllBooks()).thenReturn(myBooks);
         when(booksDao.getListByAuthor("Gabriel")).thenReturn(booksByAuthor);
-   
+
         RestAssuredMockMvc.standaloneSetup(bookController);
 
     }
@@ -116,11 +122,13 @@ public class testBookController {
             body("name",equalTo("El Lobito")).
             body("editorial",equalTo("Editorial 7")).
             body("author.name",equalTo("Carlos")).
-            body("author.lastName",equalTo("Fuentes"));
+            body("author.lastName", equalTo("Fuentes"));
         
     }
     @Test
     public void testFailCreateBook(){
+        doThrow(new BookService().new CreationErrorException()).when(bookService).createBook(any(Book.class));
+
         given().
             contentType(JSON).
             body(new Book("1","100 años","Alpahuara", new Author("Gabriel","García Márquez"))).
