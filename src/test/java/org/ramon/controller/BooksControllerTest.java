@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.ramon.dao.BooksDao;
 import org.ramon.model.Author;
@@ -22,6 +21,7 @@ import static com.jayway.restassured.module.mockmvc.RestAssuredMockMvc.given;
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 
@@ -76,8 +76,11 @@ public class BooksControllerTest {
         RestAssuredMockMvc.standaloneSetup(bookController);
 
     }
+
     @Test
-    public void testGetBook(){
+    public void testGetBook() {
+        when(bookService.getBook("1")).thenReturn(book1);
+
         given().
         when().
             get("/book/get/{idBook}",1).
@@ -90,24 +93,30 @@ public class BooksControllerTest {
             body("author.lastName",equalTo("Marquez")).
             statusCode(SC_OK);
     }
+
     @Test
-    public void testGetBookListEmpty(){
-        List <Book> emptyBooks = new ArrayList<Book>();
-        Mockito.when(booksDao.getAllBooks()).thenReturn(emptyBooks);
+    public void testGetBookListEmpty() {
+        List <Book> emptyBooks = new ArrayList<>();
+        when(booksDao.getAllBooks()).thenReturn(emptyBooks);
+
         given().
         when().
-            get("/book/get/{idBook}",1).
+            get("/book/list").
         then().
-            statusCode(SC_NOT_FOUND);
+            statusCode(SC_OK);
     }
+
     @Test
     public void testNotFoundBook(){
+        doThrow(new BookService().new ReadErrorException()).when(bookService).getBook(anyString());
+
         given().
         when().
             get("/book/get/{idBook}",6).
         then().
             statusCode(SC_NOT_FOUND);  
     }
+
     @Test
     public void testCreateBook(){
         given().
@@ -125,6 +134,7 @@ public class BooksControllerTest {
             body("author.lastName", equalTo("Fuentes"));
         
     }
+
     @Test
     public void testFailCreateBook(){
         doThrow(new BookService().new CreationErrorException()).when(bookService).createBook(any(Book.class));
@@ -137,8 +147,11 @@ public class BooksControllerTest {
         then()
             .statusCode(SC_NOT_ACCEPTABLE); 
     }
+
     @Test
     public void testDeleteBook(){
+        when(bookService.deleteBook("3")).thenReturn(book3);
+
         given().
         when().
             delete("/book/delete/{idBook}",3).
@@ -150,6 +163,7 @@ public class BooksControllerTest {
             body("author.lastName", equalTo("Marquez"))
             .statusCode(SC_OK);
     }
+
     @Test
     public void testUpdateBook(){
         given().
@@ -165,8 +179,11 @@ public class BooksControllerTest {
             body("author.lastName", equalTo("Garcia")).
             statusCode(SC_OK); 
     }
+
     @Test
-    public void testFailUpdateBook(){
+    public void testFailUpdateBook() {
+        doThrow(new BookService().new UpdateErrorException()).when(bookService).updateBook(any(Book.class));
+
         given().
             contentType(ContentType.JSON).
             body(new Book("10","Doce Cuentos Peregrinos","Alpahuara", new Author("Carlos","García Márquez"))).
@@ -175,40 +192,49 @@ public class BooksControllerTest {
         then()
             .statusCode(SC_NOT_FOUND); 
     }
+
     @Test
-    public void testFailDeleteBook(){
+    public void testFailDeleteBook() {
+        when(bookService.deleteBook("8")).thenThrow(new BookService().new DeleteErrorException());
+
         given().
         when().
             delete("/book/delete/{idBook}",8).
         then().
             statusCode(SC_NOT_FOUND);
     }
+
     @Test
     public void testGetAllBooks(){
+        when(bookService.getAllBooks()).thenReturn(myBooks);
+
         given().
-        contentType(ContentType.JSON).
-    when().
-        get("/book/list").
-    then().
-        body("id[0]", equalTo("1")).
-        body("name[0]",equalTo("Amor en tiempos de colera")).
-        body("editorial[0]",equalTo("Editorial 1")).
-        body("author[0].name",equalTo("Gabriel")).
-        body("author[0].lastName",equalTo("Marquez"))
-        .statusCode(SC_OK);
+            contentType(ContentType.JSON).
+        when().
+            get("/book/list").
+        then().
+            body("id[0]", equalTo("1")).
+            body("name[0]",equalTo("Amor en tiempos de colera")).
+            body("editorial[0]",equalTo("Editorial 1")).
+            body("author[0].name",equalTo("Gabriel")).
+            body("author[0].lastName",equalTo("Marquez"))
+            .statusCode(SC_OK);
     }
+
     @Test
     public void testGetListByAuthor(){
+        when(bookService.getListByAuthor("Gabriel")).thenReturn(booksByAuthor);
+
         given().
-        contentType(ContentType.JSON).
-    when().
-        get("/book/listByAuthor/{authorName}","Gabriel").
-    then().
-        body("id[0]", equalTo("1")).
-        body("name[0]",equalTo("Amor en tiempos de colera")).
-        body("editorial[0]",equalTo("Editorial 1")).
-        body("author[0].name",equalTo("Gabriel")).
-        body("author[0].lastName",equalTo("Marquez"))
-        .statusCode(SC_OK);
+            contentType(ContentType.JSON).
+        when().
+            get("/book/listByAuthor/{authorName}","Gabriel").
+        then().
+            body("id[0]", equalTo("1")).
+            body("name[0]",equalTo("Amor en tiempos de colera")).
+            body("editorial[0]",equalTo("Editorial 1")).
+            body("author[0].name",equalTo("Gabriel")).
+            body("author[0].lastName",equalTo("Marquez"))
+            .statusCode(SC_OK);
     }
 }

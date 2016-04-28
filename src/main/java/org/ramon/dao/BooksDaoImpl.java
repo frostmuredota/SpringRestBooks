@@ -97,7 +97,8 @@ public class BooksDaoImpl implements BooksDao {
     public boolean exist(String idBook) {
         return getBook(idBook)!=null;
     }
-    
+
+    @Override
     public boolean notExist(String idBook){
         return !exist(idBook);
     }

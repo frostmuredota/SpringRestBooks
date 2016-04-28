@@ -12,4 +12,5 @@ public interface BooksDao {
     public void addBook(Book b); 
     public void updateBook(Book book);
     public boolean exist(String idBook);
+    public boolean notExist(String idBook);
 }

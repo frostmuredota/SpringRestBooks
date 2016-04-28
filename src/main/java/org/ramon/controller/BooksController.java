@@ -28,51 +28,48 @@ public class BooksController {
     @RequestMapping(value = "/get/{idBook}", method = GET)
     @ResponseBody
     public ResponseEntity<Book> getBook(@PathVariable("idBook") String idBook) {
-        boolean listBooksNotEmpty = !this.bookDao.getAllBooks().isEmpty();
 
-        if (listBooksNotEmpty) {
-            if (bookDao.exist(idBook)) {
-                return new ResponseEntity<Book>(this.bookDao.getBook(idBook), OK);
-            } else {
-                return new ResponseEntity<Book>(NOT_FOUND);
-            }
-        } else {
-            return new ResponseEntity<Book>(NOT_FOUND);
+        ResponseEntity<Book> response;
+
+        try {
+            Book book = bookService.getBook(idBook);
+            response = new ResponseEntity<>(book,OK);
+        } catch (BookService.ReadErrorException e) {
+            response = new ResponseEntity<>(NOT_FOUND);
         }
+
+        return response;
     }
 
 
     @RequestMapping(value = "/listByAuthor/{authorName}", method = GET)
     @ResponseBody
-    public List<Book> getListByAuthor(
-            @PathVariable("authorName") String authorName) {
-        return bookDao.getListByAuthor(authorName);
-
+    public List<Book> getListByAuthor(@PathVariable("authorName") String authorName) {
+        return bookService.getListByAuthor(authorName);
     }
 
 
     @RequestMapping(value = "/list", method = GET)
     @ResponseBody
     public List<Book> getAllBooks() {
-        return bookDao.getAllBooks();
+        return bookService.getAllBooks();
     }
 
 
     @RequestMapping(value = "/delete/{idBook}", method = DELETE)
     @ResponseBody
     public ResponseEntity<Book> deleteBook(@PathVariable("idBook") String idBook) {
-        boolean bookExist = bookDao.exist(idBook);
 
-        if (bookExist) {
+        ResponseEntity<Book> response;
 
-            Book book = bookDao.getBook(idBook);
-            bookDao.deleteBook(idBook);
-            return new ResponseEntity<Book>(book, OK);
-        } else {
-
-            return new ResponseEntity<Book>(NOT_FOUND);
+        try {
+            Book book = bookService.deleteBook(idBook);
+            response = new ResponseEntity<>(book, OK);
+        } catch (BookService.DeleteErrorException e) {
+            response = new ResponseEntity<>(NOT_FOUND);
         }
 
+        return response;
     }
 
 
@@ -83,10 +80,9 @@ public class BooksController {
 
         try {
             bookService.createBook(book);
-
-            response = new ResponseEntity<Book>(book, CREATED);
+            response = new ResponseEntity<>(book, CREATED);
         } catch (BookService.CreationErrorException e) {
-            response = new ResponseEntity<Book>(NOT_ACCEPTABLE);
+            response = new ResponseEntity<>(NOT_ACCEPTABLE);
         }
 
         return response;
@@ -96,20 +92,16 @@ public class BooksController {
     @RequestMapping(value = "/update", method = PUT)
     @ResponseBody
     public ResponseEntity<Book> updateBook(@RequestBody Book book) {
-        boolean bookExist = bookDao.exist(book.getId());
+        ResponseEntity<Book> response;
 
-        if (bookExist) {
-            this.bookDao.updateBook(book);
-
-            return new ResponseEntity<Book>(book, OK);
-        } else {
-
-            return new ResponseEntity<Book>(NOT_FOUND);
+        try {
+            bookService.updateBook(book);
+            response = new ResponseEntity<>(book, OK);
+        } catch (BookService.UpdateErrorException e) {
+            response = new ResponseEntity<>(NOT_FOUND);
         }
+
+        return response;
     }
 
-
-    public void setBookDao(BooksDao bookDao) {
-        this.bookDao = bookDao;
-    }
 }
