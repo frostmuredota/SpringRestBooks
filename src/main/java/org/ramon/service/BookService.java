@@ -19,6 +19,8 @@ public class BookService {
 
         if (bookNotExist) {
             this.bookDao.addBook(book);
+        } else {
+            throw new CreationErrorException();
         }
     }
 
