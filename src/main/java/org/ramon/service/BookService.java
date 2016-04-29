@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static org.apache.commons.lang3.StringUtils.isNotBlank;
+
 @Service
 public class BookService {
 
@@ -15,7 +17,7 @@ public class BookService {
 
 
     public void createBook(Book book) {
-        boolean bookExist = bookDao.exist(book.getId());
+        boolean bookExist = bookDao.exist(book.getId()) && isNotBlank(book.getId());
 
         if (bookExist) {
             throw new CreationErrorException();
@@ -25,25 +27,25 @@ public class BookService {
     }
 
     public void updateBook(Book book) {
-        boolean bookNotExist = bookDao.notExist(book.getId());
+        boolean bookNotExist = !(bookDao.exist(book.getId()) && isNotBlank(book.getId()));
 
         if (bookNotExist) {
-           throw new UpdateErrorException();
+            throw new UpdateErrorException();
+        }else{
+            this.bookDao.updateBook(book);
         }
 
-        this.bookDao.updateBook(book);
     }
 
     public Book deleteBook(String idBook) {
 
-        boolean bookNotExist = bookDao.notExist(idBook);
+        boolean bookExist = !bookDao.exist(idBook);
 
-        if (bookNotExist) {
+        if (bookExist) {
+            return bookDao.deleteBook(idBook);
+        }else{
             throw new DeleteErrorException();
         }
-
-        bookDao.deleteBook(idBook);
-        return bookDao.getBook(idBook);
 
     }
 

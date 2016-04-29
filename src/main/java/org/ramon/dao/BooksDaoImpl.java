@@ -13,21 +13,21 @@ import static org.apache.commons.lang3.StringUtils.isNotBlank;
 @Service
 public class BooksDaoImpl implements BooksDao {
     private final List<Book> library;
-    
-    
+
+
     public BooksDaoImpl() {
         library = new ArrayList<Book>();
     }
 
     @Override
     public List<Book> getListByAuthor(String authorName) {
-        
+
         List<Book> booksByAuthor = new ArrayList<Book>();
-        
+
         for (Book book : library) {
-           if(book.getAuthor().getName().equals(authorName)){
-               booksByAuthor.add(book);
-           }
+            if (book.getAuthor().getName().equals(authorName)) {
+                booksByAuthor.add(book);
+            }
         }
 
         return booksByAuthor;
@@ -36,56 +36,43 @@ public class BooksDaoImpl implements BooksDao {
     @Override
     public Book deleteBook(String idBook) {
         Book book = null;
-        
+
         for (Book item : library) {
-            if(item.getId().equals(idBook)){
+            if (item.getId().equals(idBook)) {
                 book = item;
             }
         }
-        
+
         library.remove(book);
-       
+
         return book;
     }
 
     @Override
-    public Book getBook(String idBook) {  
+    public Book getBook(String idBook) {
         Book book = null;
-        
+
         for (Book item : library) {
-            if(item.getId().equals(idBook)){
+            if (item.getId().equals(idBook)) {
                 book = item;
             }
         }
-        
+
         return book;
     }
 
     @Override
     public void updateBook(Book bookToUpdate) {
-        Book book = null;
         String bookId = bookToUpdate.getId();
-        boolean canUpdateBook = exist(bookId) && isNotBlank(bookId);
-        
-        if (canUpdateBook) {
-            book = getBook(bookId);
-            deleteBook(book.getId());
-            library.add(bookToUpdate);
-        }else{
-            throw new UpdateBookException("Sorry , the book can't be updated");  
-        }
+        Book book = getBook(bookId);
+        deleteBook(book.getId());
+        library.add(bookToUpdate);
     }
 
     @Override
-    public void addBook(Book book){
-        String bookId = book.getId();
-        boolean canAddBook = notExist(bookId) && isNotBlank(bookId);
-        
-        if (canAddBook) {
-             library.add(book);
-        }else{
-           throw new SaveBookException("Sorry , the book can't be added"); 
-        }
+    public void addBook(Book book) {
+            library.add(book);
+
     }
 
     @Override
@@ -95,11 +82,11 @@ public class BooksDaoImpl implements BooksDao {
 
     @Override
     public boolean exist(String idBook) {
-        return getBook(idBook)!=null;
+        return getBook(idBook) != null;
     }
 
     @Override
-    public boolean notExist(String idBook){
+    public boolean notExist(String idBook) {
         return !exist(idBook);
     }
 

@@ -10,7 +10,11 @@ import org.ramon.dao.BooksDao;
 import org.ramon.model.Author;
 import org.ramon.model.Book;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 
@@ -34,4 +38,23 @@ public class BookServiceTest {
 
         bookService.createBook(book);
     }
+
+    @Test(expected = BookService.DeleteErrorException.class)
+    public void shouldThrowExceptionWhenBookAlreadyNotExistsToDelete() throws Exception {
+        when(booksDao.exist("1")).thenReturn(true);
+
+        bookService.deleteBook("1");
+    }
+
+    @Test(expected = BookService.UpdateErrorException.class)
+    public void shouldThrowExceptionWhenBookAlreadyNotExistsToUpdate() throws Exception {
+        when(booksDao.exist("1")).thenReturn(true);
+
+        Author nullAuthor = null;
+
+        Book book = new Book("5","juan","plaza", nullAuthor);
+
+        bookService.updateBook(book);
+    }
+
 }
