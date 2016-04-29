@@ -10,6 +10,7 @@ import org.ramon.dao.BooksDao;
 import org.ramon.model.Author;
 import org.ramon.model.Book;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -56,5 +57,56 @@ public class BookServiceTest {
 
         bookService.updateBook(book);
     }
+
+
+    @Test(expected = BookService.ReadErrorException.class)
+    public void shouldThrowReadExceptionWhenBookListExistsButNoBookFound() throws Exception {
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(new Book());
+
+        when(booksDao.getAllBooks()).thenReturn(books);
+
+        when(booksDao.exist("42")).thenReturn(false);
+
+        bookService.getBook("42");
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
