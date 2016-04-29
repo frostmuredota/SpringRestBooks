@@ -16,6 +16,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 
@@ -69,6 +70,21 @@ public class BookServiceTest {
         when(booksDao.exist("42")).thenReturn(false);
 
         bookService.getBook("42");
+    }
+
+
+    @Test
+    public void shouldReturnBookWhenGetIsCalled() throws Exception {
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(new Book());
+
+        when(booksDao.getAllBooks()).thenReturn(books);
+
+        when(booksDao.exist("73")).thenReturn(true);
+
+        bookService.getBook("73");
+
+        verify(booksDao).getBook("73");
     }
 
 
