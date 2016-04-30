@@ -39,7 +39,7 @@ public class BookService {
 
     public Book deleteBook(String idBook) {
 
-        boolean bookExist = !bookDao.exist(idBook);
+        boolean bookExist = bookDao.exist(idBook);
 
         if (bookExist) {
             return bookDao.deleteBook(idBook);
@@ -67,7 +67,7 @@ public class BookService {
                 throw new ReadErrorException();
             }
         } else {
-            throw new ReadErrorException();
+            throw new EmptyListException();
         }
     }
 
@@ -78,4 +78,6 @@ public class BookService {
     public class DeleteErrorException extends RuntimeException { }
 
     public class ReadErrorException extends RuntimeException { }
+
+    public class EmptyListException extends RuntimeException{ }
 }

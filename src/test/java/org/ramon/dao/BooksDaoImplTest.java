@@ -3,6 +3,7 @@ package org.ramon.dao;
 import org.junit.Before;
 import org.junit.Test;
 import org.ramon.builder.BookBuilder;
+import org.ramon.dao.exceptions.DeleteBookException;
 import org.ramon.dao.exceptions.SaveBookException;
 import org.ramon.dao.exceptions.UpdateBookException;
 import org.ramon.model.Book;
@@ -74,7 +75,7 @@ public class BooksDaoImplTest {
         
     }
     
-    @Test
+    @Test(expected = DeleteBookException.class)
     public void testDeleteBookIdNotExist() {
         Book book =  new BookBuilder()
         .withId(ID)

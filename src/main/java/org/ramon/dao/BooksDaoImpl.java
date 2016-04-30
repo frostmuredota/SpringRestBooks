@@ -1,5 +1,6 @@
 package org.ramon.dao;
 
+import org.ramon.dao.exceptions.DeleteBookException;
 import org.ramon.dao.exceptions.SaveBookException;
 import org.ramon.dao.exceptions.UpdateBookException;
 import org.ramon.model.Book;
@@ -43,9 +44,13 @@ public class BooksDaoImpl implements BooksDao {
             }
         }
 
-        library.remove(book);
+        if(book !=null){
+            library.remove(book);
+            return book;
+        }else{
+            throw new DeleteBookException("Delete Book failed");
+        }
 
-        return book;
     }
 
     @Override
@@ -57,7 +62,6 @@ public class BooksDaoImpl implements BooksDao {
                 book = item;
             }
         }
-
         return book;
     }
 
@@ -65,13 +69,27 @@ public class BooksDaoImpl implements BooksDao {
     public void updateBook(Book bookToUpdate) {
         String bookId = bookToUpdate.getId();
         Book book = getBook(bookId);
-        deleteBook(book.getId());
-        library.add(bookToUpdate);
+
+        if(book != null){
+            deleteBook(book.getId());
+            library.add(bookToUpdate);
+        }else{
+            throw new UpdateBookException("Updating Book failed, book not exist");
+        }
+
     }
 
     @Override
     public void addBook(Book book) {
+
+        boolean validBook = isNotBlank(book.getId()) &&  notExist(book.getId());
+
+        if(validBook){
             library.add(book);
+        }else{
+            throw new SaveBookException("Save Book failed");
+        }
+
 
     }
 
