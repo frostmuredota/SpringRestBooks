@@ -19,11 +19,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 public class BooksController {
 
     @Autowired
-    private BooksDao bookDao;
-
-    @Autowired
     private BookService bookService;
-
 
     @RequestMapping(value = "/get/{idBook}", method = GET)
     @ResponseBody
@@ -33,7 +29,7 @@ public class BooksController {
 
         try {
             Book book = bookService.getBook(idBook);
-            response = new ResponseEntity<>(book,OK);
+            response = new ResponseEntity<>(book, OK);
         } catch (BookService.ReadErrorException e) {
             response = new ResponseEntity<>(NOT_FOUND);
         }

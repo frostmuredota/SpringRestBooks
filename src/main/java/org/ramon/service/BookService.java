@@ -7,46 +7,35 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static org.apache.commons.lang3.StringUtils.isNotBlank;
-
 @Service
 public class BookService {
 
     @Autowired
     private BooksDao bookDao;
 
-
     public void createBook(Book book) {
-        boolean bookExist = bookDao.exist(book.getId()) && isNotBlank(book.getId());
-
-        if (bookExist) {
-            throw new CreationErrorException();
+        try {
+            this.bookDao.addBook(book);
+        } catch (CreationErrorException e) {
+            throw new CreationErrorException("can not create the book with id: " + book.getId());
         }
-
-        this.bookDao.addBook(book);
     }
 
     public void updateBook(Book book) {
-        boolean bookNotExist = !(bookDao.exist(book.getId()) && isNotBlank(book.getId()));
-
-        if (bookNotExist) {
-            throw new UpdateErrorException();
-        }else{
+        try {
             this.bookDao.updateBook(book);
+        } catch (UpdateErrorException e) {
+            throw new UpdateErrorException("can not update the book with id: " + book.getId());
         }
 
     }
 
     public Book deleteBook(String idBook) {
-
-        boolean bookExist = bookDao.exist(idBook);
-
-        if (bookExist) {
+        try {
             return bookDao.deleteBook(idBook);
-        }else{
-            throw new DeleteErrorException();
+        } catch (DeleteErrorException e) {
+            throw new DeleteErrorException("can not delete the book with id: " + idBook);
         }
-
     }
 
     public List<Book> getAllBooks() {
@@ -58,26 +47,35 @@ public class BookService {
     }
 
     public Book getBook(String idBook) {
-        boolean listBooksNotEmpty = !this.bookDao.getAllBooks().isEmpty();
-
-        if (listBooksNotEmpty) {
-            if (bookDao.exist(idBook)) {
-                return this.bookDao.getBook(idBook);
-            } else {
-                throw new ReadErrorException();
-            }
-        } else {
-            throw new EmptyListException();
+        try {
+            return this.bookDao.getBook(idBook);
+        } catch (ReadErrorException e) {
+            throw new ReadErrorException("can not get the book with id: " + idBook);
         }
     }
 
-    public class CreationErrorException extends RuntimeException { }
+    public class CreationErrorException extends RuntimeException {
+        public CreationErrorException(String message) {
+            super(message);
+        }
+    }
 
-    public class UpdateErrorException extends RuntimeException { }
+    public class UpdateErrorException extends RuntimeException {
+        public UpdateErrorException(String message) {
+            super(message);
+        }
+    }
 
-    public class DeleteErrorException extends RuntimeException { }
+    public class DeleteErrorException extends RuntimeException {
+        public DeleteErrorException(String message) {
+            super(message);
+        }
+    }
 
-    public class ReadErrorException extends RuntimeException { }
+    public class ReadErrorException extends RuntimeException {
+        public ReadErrorException(String message) {
+            super(message);
+        }
+    }
 
-    public class EmptyListException extends RuntimeException{ }
 }

@@ -49,40 +49,6 @@ public class Book {
         this.author = author;
     }
 
-    public boolean equals(Object o) {
-        if (o == this) return true;
-        if (!(o instanceof Book)) return false;
-        final Book other = (Book) o;
-        if (!other.canEqual((Object) this)) return false;
-        final Object this$id = this.getId();
-        final Object other$id = other.getId();
-        if (this$id == null ? other$id != null : !this$id.equals(other$id)) return false;
-        final Object this$name = this.getName();
-        final Object other$name = other.getName();
-        if (this$name == null ? other$name != null : !this$name.equals(other$name)) return false;
-        final Object this$editorial = this.getEditorial();
-        final Object other$editorial = other.getEditorial();
-        if (this$editorial == null ? other$editorial != null : !this$editorial.equals(other$editorial)) return false;
-        final Object this$author = this.getAuthor();
-        final Object other$author = other.getAuthor();
-        if (this$author == null ? other$author != null : !this$author.equals(other$author)) return false;
-        return true;
-    }
-
-    public int hashCode() {
-        final int PRIME = 59;
-        int result = 1;
-        final Object $id = this.getId();
-        result = result * PRIME + ($id == null ? 0 : $id.hashCode());
-        final Object $name = this.getName();
-        result = result * PRIME + ($name == null ? 0 : $name.hashCode());
-        final Object $editorial = this.getEditorial();
-        result = result * PRIME + ($editorial == null ? 0 : $editorial.hashCode());
-        final Object $author = this.getAuthor();
-        result = result * PRIME + ($author == null ? 0 : $author.hashCode());
-        return result;
-    }
-
     protected boolean canEqual(Object other) {
         return other instanceof Book;
     }
