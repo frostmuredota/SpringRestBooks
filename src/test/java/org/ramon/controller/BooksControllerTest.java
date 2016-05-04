@@ -108,7 +108,7 @@ public class BooksControllerTest {
 
     @Test
     public void testNotFoundBook(){
-        doThrow(new BookService().new ReadErrorException()).when(bookService).getBook(anyString());
+        doThrow(new BookService().new ReadErrorException("")).when(bookService).getBook(anyString());
 
         given().
         when().
@@ -137,7 +137,7 @@ public class BooksControllerTest {
 
     @Test
     public void testFailCreateBook(){
-        doThrow(new BookService().new CreationErrorException()).when(bookService).createBook(any(Book.class));
+        doThrow(bookService.new CreationErrorException("")).when(bookService).createBook(any(Book.class));
 
         given().
             contentType(JSON).
@@ -182,7 +182,7 @@ public class BooksControllerTest {
 
     @Test
     public void testFailUpdateBook() {
-        doThrow(new BookService().new UpdateErrorException()).when(bookService).updateBook(any(Book.class));
+        doThrow(new BookService().new UpdateErrorException("")).when(bookService).updateBook(any(Book.class));
 
         given().
             contentType(ContentType.JSON).
@@ -195,7 +195,7 @@ public class BooksControllerTest {
 
     @Test
     public void testFailDeleteBook() {
-        when(bookService.deleteBook("8")).thenThrow(new BookService().new DeleteErrorException());
+        when(bookService.deleteBook("8")).thenThrow(new BookService().new DeleteErrorException(anyString()));
 
         given().
         when().

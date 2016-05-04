@@ -1,6 +1,9 @@
 package org.ramon.service;
 
 import org.ramon.dao.BooksDao;
+import org.ramon.dao.exceptions.DeleteBookException;
+import org.ramon.dao.exceptions.SaveBookException;
+import org.ramon.dao.exceptions.UpdateBookException;
 import org.ramon.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +19,7 @@ public class BookService {
     public void createBook(Book book) {
         try {
             this.bookDao.addBook(book);
-        } catch (CreationErrorException e) {
+        } catch (SaveBookException e) {
             throw new CreationErrorException("can not create the book with id: " + book.getId());
         }
     }
@@ -24,22 +27,26 @@ public class BookService {
     public void updateBook(Book book) {
         try {
             this.bookDao.updateBook(book);
-        } catch (UpdateErrorException e) {
+        } catch (UpdateBookException e) {
             throw new UpdateErrorException("can not update the book with id: " + book.getId());
         }
-
     }
 
     public Book deleteBook(String idBook) {
         try {
             return bookDao.deleteBook(idBook);
-        } catch (DeleteErrorException e) {
+        } catch (DeleteBookException e) {
             throw new DeleteErrorException("can not delete the book with id: " + idBook);
         }
     }
 
     public List<Book> getAllBooks() {
-        return bookDao.getAllBooks();
+        List<Book> bookList = bookDao.getAllBooks();
+        if (bookList.isEmpty()) {
+            throw new EmptyListException("List of books is empty");
+        } else {
+            return bookList;
+        }
     }
 
     public List<Book> getListByAuthor(String authorName) {
@@ -47,10 +54,11 @@ public class BookService {
     }
 
     public Book getBook(String idBook) {
-        try {
-            return this.bookDao.getBook(idBook);
-        } catch (ReadErrorException e) {
-            throw new ReadErrorException("can not get the book with id: " + idBook);
+        Book book = this.bookDao.getBook(idBook);
+        if (book != null) {
+            return book;
+        } else {
+            throw new ReadErrorException("can not acces to the book with id: " + idBook);
         }
     }
 
@@ -78,4 +86,7 @@ public class BookService {
         }
     }
 
+    public class EmptyListException extends RuntimeException {
+        public EmptyListException(String message) { super(message); }
+    }
 }
