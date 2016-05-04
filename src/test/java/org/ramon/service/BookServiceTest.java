@@ -77,18 +77,6 @@ public class BookServiceTest {
         bookService.updateBook(book);
     }
 
-    /*
-    @Test
-    public void shouldReturnBookWhenUpdateMethodIsCalled() throws Exception {
-        Book book = new Book("1","juan","plaza", new Author("Andres","Caceres"));
-        when(bookService.updateBook(book)).thenReturn(book);
-        when(booksDao.exist("1")).thenReturn(true);
-        Author nullAuthor = null;
-        Book book = new Book("1","juan","plaza", nullAuthor);
-        bookService.updateBook(book);
-        verify(booksDao).updateBook(book);
-    }*/
-
 
     @Test(expected = BookService.ReadErrorException.class)
     public void shouldThrowReadExceptionWhenBookListExistsButNoBookFound() throws Exception {
